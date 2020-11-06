@@ -1,0 +1,26 @@
+I"�<p>It’s been said that there are only <a href="https://martinfowler.com/bliki/TwoHardThings.html">two hard things</a> in programming. I think a corollary to that is <a href="https://medium.com/@BlueTaslem/time-is-hard-for-computers-programmers-14ef2a7ece77">time is hard</a>. So I wanted to write a post about some of the various things COSMOS does with time and what you need to be aware of.</p>
+
+<h3 id="received-time">Received Time</h3>
+
+<p>If you’ve used COSMOS for a while you’ve noticed that COSMOS automatically creates several telemetry items on every packet: PACKET_TIMESECONDS, PACKET_TIMEFORMATTED, RECEIVED_COUNT, RECEIVED_TIMEFORMATTED, and RECEIVED_TIMESECONDS. While RECEIVED_COUNT is fairly self-explanatory (number of times the packet has been received) it might not be obvious why there are 4! ways to get the time.</p>
+
+<p>So what’s the difference between RECEIVED_TIME vs PACKET_TIME. First of all they both have a TIMEFORMATTED and TIMESECONDS version. The formatted telemetry item returns the date and time in a YYYY/MM/DD HH:MM:SS.sss format in the local timezone. This is useful for human readable output like in <a href="/docs/tools/#telemetry-extractor">Telemetry Extractor</a>. They also can return TIMESECONDS which is the floating point UTC time in seconds from the Unix epoch.</p>
+
+<p>RECEIVED_TIME is the time that COSMOS receives the packet. This is set by the interface which is connected to the target and is receiving the raw data. Once a packet has been created out of the raw data the time is set.</p>
+
+<p>PACKET_TIME is a recent (<a href="https://cosmosrb.com/news/2018/08/30/cosmos-4-3-0-released/">4.3.0</a>) concept introduced by a <a href="https://github.com/BallAerospace/COSMOS/issues/814">change to support stored telemetry</a>. The <a href="/docs/packet_class/">Packet</a> class has a new method called <a href="https://github.com/BallAerospace/COSMOS/blob/master/lib/cosmos/packets/packet.rb#L243">packet_time</a> that by default simply returns the received time as set by COSMOS. But if you define a telemetry item called ‘PACKET_TIME’, that item will be used instead.</p>
+
+<p>This was done to support processing ‘stored’ telemetry data which isn’t coming into COSMOS in real-time. Previously if you created an interface to process stored telemetry, COSMOS would set the received_time as fast as it processed the files and all your stored telemetry would effective have a timestamp of ‘now’. This would have also updated the current value table in COSMOS which affect scripts, screens, etc. With COSMOS 4.3.0 and later you can set the ‘stored’ flag in your interface and the current value table is unaffected. Also if you define a ‘PACKET_TIME’ item in your packet, this item will be used to calculate the time.</p>
+
+<h3 id="example">Example</h3>
+
+<p>COSMOS provides a Unix time conversion class which returns a Ruby time object based on the number of seconds and (optionally) microseconds since the Unix epoch. Note: This returns a Ruby Time object and not a float or string!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ITEM PACKET_TIME 0 0 DERIVED "Ruby time based on TIMESEC and TIMEUS"
+    READ_CONVERSION unix_time_conversion.rb TIMESEC TIMEUS
+</code></pre></div></div>
+
+<p>Definining PACKET_TIME allows the PACKET_TIMESECONDS and PACKET_TIMEFORMATTED to be calculated against an internal Packet time rather than the time that COSMOS receives the packet.</p>
+
+<p>If you have a question, find a bug, or want a feature please use our <a href="https://github.com/BallAerospace/COSMOS/issues">Github Issues</a>. If you would like more information about a COSMOS training or support contract please contact us at <a href="mailto:cosmos@ball.com">cosmos@ball.com</a>.</p>
+:ET
