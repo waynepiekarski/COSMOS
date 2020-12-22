@@ -1,357 +1,12 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-  <meta charset="UTF-8">
-  <title>Scripting Guide</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v4.1.1">
-  <link rel="alternate" type="application/rss+xml" title="Ball Aerospace COSMOS News" href="/feed.xml">
-  <link rel="alternate" type="application/atom+xml" title="Recent commits to COSMOS's master branch" href="https://github.com/BallAerospace/COSMOS/commits/master.atom">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
-  <link rel="stylesheet" href="/css/screen.css">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!--[if lt IE 9]>
-  <script src="/js/html5shiv.min.js"></script>
-  <script src="/js/respond.min.js"></script>
-  <![endif]-->
-</head>
-
-
-<body class="wrap">
-  <header role="banner">
-  <nav class="mobile-nav show-on-mobiles">
-    <ul>
-  <li class="">
-    <a href="/">Home</a>
-  </li>
-  <li class="current">
-    <span class="hide-on-mobiles"><a href="/docs/v4/">Documentation</a></span>
-    <span class="show-on-mobiles"><a href="/docs/v4/">Docs</a></span>
-  </li>
-  <li class="">
-    <a href="/news/">News</a>
-  </li>
-  <li>
-    <a href="/help/">Help</a>
-  </li>
-  <li>
-    <a href="https://github.com/BallAerospace/COSMOS" target="_blank"
-      ><span class="hide-on-mobiles">View on </span>GitHub</a
-    >
-  </li>
-</ul>
-
-  </nav>
-  <div class="grid wider">
-    <div class="unit one-third center-on-mobiles" style="margin-top:27px;">
-      <h1>
-        <a href="/">
-          <span class="sr-only">COSMOS</span>
-          <img src="/img/COSMOS.png" width="312" height="70" alt="COSMOS Logo">
-        </a>
-      </h1>
-    </div>
-    <nav class="main-nav unit two-thirds hide-on-mobiles">
-      <ul>
-  <li class="">
-    <a href="/">Home</a>
-  </li>
-  <li class="current">
-    <span class="hide-on-mobiles"><a href="/docs/v4/">Documentation</a></span>
-    <span class="show-on-mobiles"><a href="/docs/v4/">Docs</a></span>
-  </li>
-  <li class="">
-    <a href="/news/">News</a>
-  </li>
-  <li>
-    <a href="/help/">Help</a>
-  </li>
-  <li>
-    <a href="https://github.com/BallAerospace/COSMOS" target="_blank"
-      ><span class="hide-on-mobiles">View on </span>GitHub</a
-    >
-  </li>
-</ul>
-
-    </nav>
-  </div>
-</header>
-
-
-  <section class="docs">
-  <div class="grid wider">
-    <div class="unit four-fifths">
-      <article>
-        <!-- Get version but ignore the "docs" collection -->
-        <!-- prettier-ignore -->
-        
-        
-        <div class="improve right">
-          <span class="version-badge">v5</span>
-        </div>
-         
-        <div class="toc"><ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#concepts">Concepts</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#ruby-programming-language">Ruby Programming Language</a></li>
-<li class="toc-entry toc-h3"><a href="#telemetry-types">Telemetry Types</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#writing-test-procedures">Writing Test Procedures</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#using-subroutines">Using Subroutines</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#example-test-procedures">Example Test Procedures</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#subroutines">Subroutines</a></li>
-<li class="toc-entry toc-h3"><a href="#ruby-control-structures">Ruby Control Structures</a></li>
-<li class="toc-entry toc-h3"><a href="#iterating-over-similarly-named-telemetry-points">Iterating over similarly named telemetry points</a></li>
-<li class="toc-entry toc-h3"><a href="#prompting-for-user-input">Prompting for User Input</a></li>
-<li class="toc-entry toc-h3"><a href="#skipping-a-test-case-in-testrunner">Skipping a test case in TestRunner</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#running-test-procedures">Running Test Procedures</a></li>
-<li class="toc-entry toc-h2"><a href="#execution-environment">Execution Environment</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#using-script-runner">Using Script Runner</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#test-procedure-api">Test Procedure API</a></li>
-<li class="toc-entry toc-h2"><a href="#retrieving-user-input">Retrieving User Input</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#ask">ask</a></li>
-<li class="toc-entry toc-h3"><a href="#ask_string">ask_string</a></li>
-<li class="toc-entry toc-h3"><a href="#message_box">message_box</a></li>
-<li class="toc-entry toc-h3"><a href="#vertical_message_box">vertical_message_box</a></li>
-<li class="toc-entry toc-h3"><a href="#combo_box">combo_box</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#providing-information-to-the-user">Providing information to the user</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#prompt">prompt</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#commands">Commands</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#cmd">cmd</a></li>
-<li class="toc-entry toc-h3"><a href="#cmd_no_range_check">cmd_no_range_check</a></li>
-<li class="toc-entry toc-h3"><a href="#cmd_no_hazardous_check">cmd_no_hazardous_check</a></li>
-<li class="toc-entry toc-h3"><a href="#cmd_no_checks">cmd_no_checks</a></li>
-<li class="toc-entry toc-h3"><a href="#cmd_raw">cmd_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#cmd_raw_no_range_check">cmd_raw_no_range_check</a></li>
-<li class="toc-entry toc-h3"><a href="#cmd_raw_no_hazardous_check">cmd_raw_no_hazardous_check</a></li>
-<li class="toc-entry toc-h3"><a href="#cmd_raw_no_checks">cmd_raw_no_checks</a></li>
-<li class="toc-entry toc-h3"><a href="#send_raw">send_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#send_raw_file">send_raw_file</a></li>
-<li class="toc-entry toc-h3"><a href="#get_cmd_buffer">get_cmd_buffer</a></li>
-<li class="toc-entry toc-h3"><a href="#get_cmd_list">get_cmd_list</a></li>
-<li class="toc-entry toc-h3"><a href="#get_cmd_param_list">get_cmd_param_list</a></li>
-<li class="toc-entry toc-h3"><a href="#get_cmd_hazardous">get_cmd_hazardous</a></li>
-<li class="toc-entry toc-h3"><a href="#get_cmd_value">get_cmd_value</a></li>
-<li class="toc-entry toc-h3"><a href="#get_cmd_time">get_cmd_time</a></li>
-<li class="toc-entry toc-h3"><a href="#get_cmd_cnt-since-392">get_cmd_cnt (since 3.9.2)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_all_cmd_info-since-410">get_all_cmd_info (since 4.1.0)</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#handling-telemetry">Handling Telemetry</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#check">check</a></li>
-<li class="toc-entry toc-h3"><a href="#check_raw">check_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#check_formatted">check_formatted</a></li>
-<li class="toc-entry toc-h3"><a href="#check_with_units">check_with_units</a></li>
-<li class="toc-entry toc-h3"><a href="#check_tolerance">check_tolerance</a></li>
-<li class="toc-entry toc-h3"><a href="#check_tolerance_raw">check_tolerance_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#check_expression">check_expression</a></li>
-<li class="toc-entry toc-h3"><a href="#check_exception-since-410">check_exception (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#tlm">tlm</a></li>
-<li class="toc-entry toc-h3"><a href="#tlm_raw">tlm_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#tlm_formatted">tlm_formatted</a></li>
-<li class="toc-entry toc-h3"><a href="#tlm_with_units">tlm_with_units</a></li>
-<li class="toc-entry toc-h3"><a href="#tlm_variable">tlm_variable</a></li>
-<li class="toc-entry toc-h3"><a href="#get_tlm_buffer">get_tlm_buffer</a></li>
-<li class="toc-entry toc-h3"><a href="#get_tlm_packet">get_tlm_packet</a></li>
-<li class="toc-entry toc-h3"><a href="#get_tlm_values">get_tlm_values</a></li>
-<li class="toc-entry toc-h3"><a href="#get_tlm_list">get_tlm_list</a></li>
-<li class="toc-entry toc-h3"><a href="#get_tlm_item_list">get_tlm_item_list</a></li>
-<li class="toc-entry toc-h3"><a href="#get_tlm_details">get_tlm_details</a></li>
-<li class="toc-entry toc-h3"><a href="#get_tlm_cnt-since-392">get_tlm_cnt (since 3.9.2)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_all_tlm_info-since-410">get_all_tlm_info (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#set_tlm">set_tlm</a></li>
-<li class="toc-entry toc-h3"><a href="#set_tlm_raw">set_tlm_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#inject_tlm">inject_tlm</a></li>
-<li class="toc-entry toc-h3"><a href="#override_tlm">override_tlm</a></li>
-<li class="toc-entry toc-h3"><a href="#override_tlm_raw">override_tlm_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#normalize_tlm">normalize_tlm</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#packet-data-subscriptions">Packet Data Subscriptions</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#subscribe_packet_data">subscribe_packet_data</a></li>
-<li class="toc-entry toc-h3"><a href="#unsubscribe_packet_data">unsubscribe_packet_data</a></li>
-<li class="toc-entry toc-h3"><a href="#get_packet">get_packet</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#delays">Delays</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#wait">wait</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_raw">wait_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_tolerance">wait_tolerance</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_tolerance_raw">wait_tolerance_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_expression">wait_expression</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_packet">wait_packet</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_check">wait_check</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_check_raw">wait_check_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_check_tolerance">wait_check_tolerance</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_check_tolerance_raw">wait_check_tolerance_raw</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_check_expression">wait_check_expression</a></li>
-<li class="toc-entry toc-h3"><a href="#wait_check_packet">wait_check_packet</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#limits">Limits</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#limits_enabled">limits_enabled?</a></li>
-<li class="toc-entry toc-h3"><a href="#enable_limits">enable_limits</a></li>
-<li class="toc-entry toc-h3"><a href="#disable_limits">disable_limits</a></li>
-<li class="toc-entry toc-h3"><a href="#enable_limits_group">enable_limits_group</a></li>
-<li class="toc-entry toc-h3"><a href="#disable_limits_group">disable_limits_group</a></li>
-<li class="toc-entry toc-h3"><a href="#get_limits_groups">get_limits_groups</a></li>
-<li class="toc-entry toc-h3"><a href="#set_limits_set">set_limits_set</a></li>
-<li class="toc-entry toc-h3"><a href="#get_limits_set">get_limits_set</a></li>
-<li class="toc-entry toc-h3"><a href="#get_limits_sets">get_limits_sets</a></li>
-<li class="toc-entry toc-h3"><a href="#get_limits">get_limits</a></li>
-<li class="toc-entry toc-h3"><a href="#set_limits">set_limits</a></li>
-<li class="toc-entry toc-h3"><a href="#get_out_of_limits">get_out_of_limits</a></li>
-<li class="toc-entry toc-h3"><a href="#get_overall_limits_state">get_overall_limits_state</a></li>
-<li class="toc-entry toc-h3"><a href="#get_stale">get_stale</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#limits-events">Limits Events</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#subscribe_limits_events">subscribe_limits_events</a></li>
-<li class="toc-entry toc-h3"><a href="#unsubscribe_limits_events">unsubscribe_limits_events</a></li>
-<li class="toc-entry toc-h3"><a href="#get_limits_event">get_limits_event</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#targets">Targets</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#get_target_list">get_target_list</a></li>
-<li class="toc-entry toc-h3"><a href="#get_target_info-since-392">get_target_info (since 3.9.2)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_all_target_info-since-410">get_all_target_info (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_target_ignored_parameters-since-410">get_target_ignored_parameters (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_target_ignored_items-since-410">get_target_ignored_items (since 4.1.0)</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#interfaces">Interfaces</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#connect_interface">connect_interface</a></li>
-<li class="toc-entry toc-h3"><a href="#disconnect_interface">disconnect_interface</a></li>
-<li class="toc-entry toc-h3"><a href="#interface_state">interface_state</a></li>
-<li class="toc-entry toc-h3"><a href="#map_target_to_interface">map_target_to_interface</a></li>
-<li class="toc-entry toc-h3"><a href="#get_interface_names">get_interface_names</a></li>
-<li class="toc-entry toc-h3"><a href="#get_interface_targets-since-392">get_interface_targets (since 3.9.2)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_interface_info-since-392">get_interface_info (since 3.9.2)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_all_interface_info-since-410">get_all_interface_info (since 4.1.0)</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#routers">Routers</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#connect_router">connect_router</a></li>
-<li class="toc-entry toc-h3"><a href="#disconnect_router">disconnect_router</a></li>
-<li class="toc-entry toc-h3"><a href="#router_state">router_state</a></li>
-<li class="toc-entry toc-h3"><a href="#get_router_names">get_router_names</a></li>
-<li class="toc-entry toc-h3"><a href="#get_router_info-since-392">get_router_info (since 3.9.2)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_all_router_info-since-410">get_all_router_info (since 4.1.0)</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#logging">Logging</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#get_cmd_log_filename">get_cmd_log_filename</a></li>
-<li class="toc-entry toc-h3"><a href="#get_tlm_log_filename">get_tlm_log_filename</a></li>
-<li class="toc-entry toc-h3"><a href="#start_logging">start_logging</a></li>
-<li class="toc-entry toc-h3"><a href="#start_cmd_log">start_cmd_log</a></li>
-<li class="toc-entry toc-h3"><a href="#start_tlm_log">start_tlm_log</a></li>
-<li class="toc-entry toc-h3"><a href="#stop_logging">stop_logging</a></li>
-<li class="toc-entry toc-h3"><a href="#stop_cmd_log">stop_cmd_log</a></li>
-<li class="toc-entry toc-h3"><a href="#stop_tlm_log">stop_tlm_log</a></li>
-<li class="toc-entry toc-h3"><a href="#get_server_message_log_filename">get_server_message_log_filename</a></li>
-<li class="toc-entry toc-h3"><a href="#start_new_server_message_log">start_new_server_message_log</a></li>
-<li class="toc-entry toc-h3"><a href="#start_raw_logging_interface">start_raw_logging_interface</a></li>
-<li class="toc-entry toc-h3"><a href="#stop_raw_logging_interface">stop_raw_logging_interface</a></li>
-<li class="toc-entry toc-h3"><a href="#start_raw_logging_router">start_raw_logging_router</a></li>
-<li class="toc-entry toc-h3"><a href="#stop_raw_logging_router">stop_raw_logging_router</a></li>
-<li class="toc-entry toc-h3"><a href="#get_packet_loggers-since-410">get_packet_loggers (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_packet_logger_info-since-392">get_packet_logger_info (since 3.9.2)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_all_packet_logger_info-since-410">get_all_packet_logger_info (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_output_logs_filenames-since-410">get_output_logs_filenames (since 4.1.0)</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#command-and-telemetry-server">Command and Telemetry Server</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#get_server_status-since-410">get_server_status (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#cmd_tlm_reload-since-410">cmd_tlm_reload (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#cmd_tlm_clear_counters-since-410">cmd_tlm_clear_counters (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#subscribe_server_messages-since-410">subscribe_server_messages (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#unsubscribe_server_messages-since-410">unsubscribe_server_messages (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_server_message-since-410">get_server_message (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_background_tasks-since-410">get_background_tasks (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#start_background_task-since-410">start_background_task (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#stop_background_task-since-410">stop_background_task (since 4.1.0)</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#executing-other-procedures">Executing Other Procedures</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#start">start</a></li>
-<li class="toc-entry toc-h3"><a href="#load_utility">load_utility</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#opening-closing--creating-telemetry-screens">Opening, Closing &amp; Creating Telemetry Screens</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#display">display</a></li>
-<li class="toc-entry toc-h3"><a href="#clear">clear</a></li>
-<li class="toc-entry toc-h3"><a href="#clear_all-since-392">clear_all (since 3.9.2)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_screen_list-since-410">get_screen_list (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#get_screen_definition-since-410">get_screen_definition (since 4.1.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#local_screen-since-430">local_screen (since 4.3.0)</a></li>
-<li class="toc-entry toc-h3"><a href="#close_local_screens-since-430">close_local_screens (since 4.3.0)</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#script-runner-specific-functionality">Script Runner Specific Functionality</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#set_line_delay">set_line_delay</a></li>
-<li class="toc-entry toc-h3"><a href="#get_line_delay">get_line_delay</a></li>
-<li class="toc-entry toc-h3"><a href="#get_scriptrunner_message_log_filename">get_scriptrunner_message_log_filename</a></li>
-<li class="toc-entry toc-h3"><a href="#start_new_scriptrunner_message_log">start_new_scriptrunner_message_log</a></li>
-<li class="toc-entry toc-h3"><a href="#disable_instrumentation">disable_instrumentation</a></li>
-<li class="toc-entry toc-h3"><a href="#set_stdout_max_lines">set_stdout_max_lines</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#debugging">Debugging</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#insert_return">insert_return</a></li>
-<li class="toc-entry toc-h3"><a href="#step_mode">step_mode</a></li>
-<li class="toc-entry toc-h3"><a href="#run_mode">run_mode</a></li>
-<li class="toc-entry toc-h3"><a href="#show_backtrace">show_backtrace</a></li>
-<li class="toc-entry toc-h3"><a href="#shutdown_cmd_tlm">shutdown_cmd_tlm</a></li>
-<li class="toc-entry toc-h3"><a href="#set_cmd_tlm_disconnect">set_cmd_tlm_disconnect</a></li>
-<li class="toc-entry toc-h3"><a href="#get_cmd_tlm_disconnect">get_cmd_tlm_disconnect</a></li>
-</ul>
-</li>
-</ul></div>
-        
-        <h1>Scripting Guide</h1>
-        <div class="note unreleased">
+I"϶<div class="note unreleased">
   <p>Unimplemented COSMOS 5 have been noted. COSMOS 5 APIs are subject to change. The User Input, Command, and Telemetry APIs are stable.</p>
 </div>
 
 <p>This document provides the information necessary to write test procedures using the COSMOS scripting API. Scripting in COSMOS is designed to be simple and intuitive. The code completion ability for command and telemetry mnemonics makes Script Runner the ideal place to write your procedures, however any text editor will do. If there is functionality that you don’t see here or perhaps an easier syntax for doing something, please submit a ticket.</p>
 
-<h2 id="concepts">
-<a class="anchor" href="#concepts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Concepts</h2>
+<h2 id="concepts">Concepts</h2>
 
-<h3 id="ruby-programming-language">
-<a class="anchor" href="#ruby-programming-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby Programming Language</h3>
+<h3 id="ruby-programming-language">Ruby Programming Language</h3>
 
 <p>COSMOS scripting is implemented using the Ruby Programming language. This should be largely transparent to the user, but if advanced processing needs to be done such as writing files, then knowledge of Ruby is necessary. Please see the Ruby Guide for more information about Ruby.</p>
 
@@ -439,8 +94,7 @@
 
 <p>Finally we call our clear_collects method on each target by passing the target name. You’ll notice there we used single quotes instead of double quotes. The only difference is that double quotes allow for the #{} syntax and support escape characters like newlines (\n) while single quotes do not. Otherwise it’s just a personal style preference.</p>
 
-<h3 id="telemetry-types">
-<a class="anchor" href="#telemetry-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Telemetry Types</h3>
+<h3 id="telemetry-types">Telemetry Types</h3>
 
 <p>There are four different ways that telemetry values can be retrieved in COSMOS. The following chart explains their differences.</p>
 
@@ -471,19 +125,15 @@
   </tbody>
 </table>
 
-<h2 id="writing-test-procedures">
-<a class="anchor" href="#writing-test-procedures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing Test Procedures</h2>
+<h2 id="writing-test-procedures">Writing Test Procedures</h2>
 
-<h3 id="using-subroutines">
-<a class="anchor" href="#using-subroutines" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Subroutines</h3>
+<h3 id="using-subroutines">Using Subroutines</h3>
 
 <p>Subroutines in COSMOS scripting are first class citizens. They can allow you to perform repetitive tasks without copying the same code multiple times and in multiple different test procedures. This reduces errors and makes your test procedures more maintainable. For example, if multiple test procedures need to turn on a power supply and check telemetry, they can both use a common subroutine. If a change needs to be made to how the power supply is turned on, then it only has to be done in one location and all test procedures reap the benefits. No need to worry about forgetting to update one. Additionally using subroutines allows your high level procedure to read very cleanly and makes it easier for others to review. See the Subroutine Example example.</p>
 
-<h2 id="example-test-procedures">
-<a class="anchor" href="#example-test-procedures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Test Procedures</h2>
+<h2 id="example-test-procedures">Example Test Procedures</h2>
 
-<h3 id="subroutines">
-<a class="anchor" href="#subroutines" aria-hidden="true"><span class="octicon octicon-link"></span></a>Subroutines</h3>
+<h3 id="subroutines">Subroutines</h3>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># My Utility Procedure: program_utilities.rb</span>
 <span class="c1"># Author: Bob</span>
@@ -541,8 +191,7 @@
 <span class="n">turn_off_power</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="ruby-control-structures">
-<a class="anchor" href="#ruby-control-structures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby Control Structures</h3>
+<h3 id="ruby-control-structures">Ruby Control Structures</h3>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#if, elsif, else structure</span>
 
@@ -570,8 +219,7 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<h3 id="iterating-over-similarly-named-telemetry-points">
-<a class="anchor" href="#iterating-over-similarly-named-telemetry-points" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iterating over similarly named telemetry points</h3>
+<h3 id="iterating-over-similarly-named-telemetry-points">Iterating over similarly named telemetry points</h3>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># This block of code goes through the range of numbers 1 through 4 (1..4)</span>
 <span class="c1"># and checks telemetry items TEMP1, TEMP2, TEMP3, and TEMP4</span>
@@ -588,8 +236,7 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<h3 id="prompting-for-user-input">
-<a class="anchor" href="#prompting-for-user-input" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prompting for User Input</h3>
+<h3 id="prompting-for-user-input">Prompting for User Input</h3>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">numloops</span> <span class="o">=</span> <span class="n">ask</span><span class="p">(</span><span class="s2">"Please enter the number of times to loop"</span><span class="p">)</span>
 
@@ -598,8 +245,7 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<h3 id="skipping-a-test-case-in-testrunner">
-<a class="anchor" href="#skipping-a-test-case-in-testrunner" aria-hidden="true"><span class="octicon octicon-link"></span></a>Skipping a test case in TestRunner</h3>
+<h3 id="skipping-a-test-case-in-testrunner">Skipping a test case in TestRunner</h3>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_feature_x</span>
   <span class="n">continue</span> <span class="o">=</span> <span class="n">ask</span><span class="p">(</span><span class="s2">"Test feature x?"</span><span class="p">)</span>
@@ -612,14 +258,11 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<h2 id="running-test-procedures">
-<a class="anchor" href="#running-test-procedures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Test Procedures</h2>
+<h2 id="running-test-procedures">Running Test Procedures</h2>
 
-<h2 id="execution-environment">
-<a class="anchor" href="#execution-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execution Environment</h2>
+<h2 id="execution-environment">Execution Environment</h2>
 
-<h3 id="using-script-runner">
-<a class="anchor" href="#using-script-runner" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Script Runner</h3>
+<h3 id="using-script-runner">Using Script Runner</h3>
 
 <p>Script Runner is a graphical application that provides the ideal environment for running and implementing your test procedures. The Script Runner tool is broken into 4 main sections. At the top of the tool is a menu bar that allows you to do such things as open and save files, perform a syntax check, and execute your script.</p>
 
@@ -633,18 +276,15 @@
 
 <p>Finally, displayed is the log messages. All commands that are sent, errors that occur, and user puts statements appear in this area.</p>
 
-<h2 id="test-procedure-api">
-<a class="anchor" href="#test-procedure-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test Procedure API</h2>
+<h2 id="test-procedure-api">Test Procedure API</h2>
 
 <p>The following methods are designed to be used in test procedures. However, they can also be used in custom built COSMOS tools. Please see the COSMOS Tool API section for methods that are more efficient to use in custom tools.</p>
 
-<h2 id="retrieving-user-input">
-<a class="anchor" href="#retrieving-user-input" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrieving User Input</h2>
+<h2 id="retrieving-user-input">Retrieving User Input</h2>
 
 <p>These methods allow the user to enter values that are needed by the script.</p>
 
-<h3 id="ask">
-<a class="anchor" href="#ask" aria-hidden="true"><span class="octicon octicon-link"></span></a>ask</h3>
+<h3 id="ask">ask</h3>
 
 <p>The ask method prompts the user for input with a question. User input is automatically converted from a string to the appropriate data type. For example if the user enters “1”, the number 1 as an integer will be returned.</p>
 
@@ -684,8 +324,7 @@
 <span class="n">password</span> <span class="o">=</span> <span class="n">ask</span><span class="p">(</span><span class="s2">"Enter your password"</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="ask_string">
-<a class="anchor" href="#ask_string" aria-hidden="true"><span class="octicon octicon-link"></span></a>ask_string</h3>
+<h3 id="ask_string">ask_string</h3>
 
 <p>The ask_string method prompts the user for input with a question. User input is always returned as a string. For exampe if the user enters “1”, the string “1” will be returned.</p>
 
@@ -725,14 +364,11 @@
 <span class="n">password</span> <span class="o">=</span> <span class="n">ask_string</span><span class="p">(</span><span class="s2">"Enter your password"</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="message_box">
-<a class="anchor" href="#message_box" aria-hidden="true"><span class="octicon octicon-link"></span></a>message_box</h3>
+<h3 id="message_box">message_box</h3>
 
-<h3 id="vertical_message_box">
-<a class="anchor" href="#vertical_message_box" aria-hidden="true"><span class="octicon octicon-link"></span></a>vertical_message_box</h3>
+<h3 id="vertical_message_box">vertical_message_box</h3>
 
-<h3 id="combo_box">
-<a class="anchor" href="#combo_box" aria-hidden="true"><span class="octicon octicon-link"></span></a>combo_box</h3>
+<h3 id="combo_box">combo_box</h3>
 
 <p>The message_box, vertical_message_box, and combo_box methods create a message box with arbitrary buttons or selections that the user can click. The text of the button clicked is returned.</p>
 
@@ -775,13 +411,11 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<h2 id="providing-information-to-the-user">
-<a class="anchor" href="#providing-information-to-the-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Providing information to the user</h2>
+<h2 id="providing-information-to-the-user">Providing information to the user</h2>
 
 <p>These methods notify the user that something has occurred.</p>
 
-<h3 id="prompt">
-<a class="anchor" href="#prompt" aria-hidden="true"><span class="octicon octicon-link"></span></a>prompt</h3>
+<h3 id="prompt">prompt</h3>
 
 <p>The prompt method displays a message to the user and waits for them to press an ok button.</p>
 
@@ -810,13 +444,11 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">prompt</span><span class="p">(</span><span class="s2">"Press OK to continue"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="commands">
-<a class="anchor" href="#commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands</h2>
+<h2 id="commands">Commands</h2>
 
 <p>These methods provide capability to send commands to a target and receive information about commands in the system.</p>
 
-<h3 id="cmd">
-<a class="anchor" href="#cmd" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd</h3>
+<h3 id="cmd">cmd</h3>
 
 <p>The cmd method sends a specified command.</p>
 
@@ -859,8 +491,7 @@
 <span class="n">cmd</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">,</span> <span class="s2">"DURATION"</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">"TYPE"</span> <span class="o">=&gt;</span> <span class="s2">"NORMAL"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="cmd_no_range_check">
-<a class="anchor" href="#cmd_no_range_check" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd_no_range_check</h3>
+<h3 id="cmd_no_range_check">cmd_no_range_check</h3>
 
 <p>The cmd_no_range_check method sends a specified command without performing range checking on its parameters. This should only be used when it is necessary to intentionally send a bad command parameter to test a target.</p>
 
@@ -903,8 +534,7 @@
 <span class="n">cmd_no_range_check</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">,</span> <span class="s2">"DURATION"</span> <span class="o">=&gt;</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">"TYPE"</span> <span class="o">=&gt;</span> <span class="s2">"NORMAL"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="cmd_no_hazardous_check">
-<a class="anchor" href="#cmd_no_hazardous_check" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd_no_hazardous_check</h3>
+<h3 id="cmd_no_hazardous_check">cmd_no_hazardous_check</h3>
 
 <p>The cmd_no_hazardous_check method sends a specified command without performing the notification if it is a hazardous command. This should only be used when it is necessary to fully automate testing involving hazardous commands.</p>
 
@@ -947,8 +577,7 @@
 <span class="n">cmd_no_hazardous_check</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"CLEAR"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="cmd_no_checks">
-<a class="anchor" href="#cmd_no_checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd_no_checks</h3>
+<h3 id="cmd_no_checks">cmd_no_checks</h3>
 
 <p>The cmd_no_checks method sends a specified command without performing the parameter range checks or notification if it is a hazardous command. This should only be used when it is necessary to fully automate testing involving hazardous commands that intentially have invalid parameters.</p>
 
@@ -991,8 +620,7 @@
 <span class="n">cmd_no_checks</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">,</span> <span class="s2">"DURATION"</span> <span class="o">=&gt;</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">"TYPE"</span> <span class="o">=&gt;</span> <span class="s2">"SPECIAL"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="cmd_raw">
-<a class="anchor" href="#cmd_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd_raw</h3>
+<h3 id="cmd_raw">cmd_raw</h3>
 
 <p>The cmd_raw method sends a specified command without running conversions.</p>
 
@@ -1035,8 +663,7 @@
 <span class="n">cmd_raw</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">,</span> <span class="s2">"DURATION"</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="no">TYPE</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="cmd_raw_no_range_check">
-<a class="anchor" href="#cmd_raw_no_range_check" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd_raw_no_range_check</h3>
+<h3 id="cmd_raw_no_range_check">cmd_raw_no_range_check</h3>
 
 <p>The cmd_raw_no_range_check method sends a specified command without running conversions or performing range checking on its parameters. This should only be used when it is necessary to intentionally send a bad command parameter to test a target.</p>
 
@@ -1079,8 +706,7 @@
 <span class="n">cmd_raw_no_range_check</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">,</span> <span class="s2">"DURATION"</span> <span class="o">=&gt;</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">"TYPE"</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="cmd_raw_no_hazardous_check">
-<a class="anchor" href="#cmd_raw_no_hazardous_check" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd_raw_no_hazardous_check</h3>
+<h3 id="cmd_raw_no_hazardous_check">cmd_raw_no_hazardous_check</h3>
 
 <p>The cmd_raw_no_hazardous_check method sends a specified command without running conversions or performing the notification if it is a hazardous command. This should only be used when it is necessary to fully automate testing involving hazardous commands.</p>
 
@@ -1123,8 +749,7 @@
 <span class="n">cmd_raw_no_hazardous_check</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"CLEAR"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="cmd_raw_no_checks">
-<a class="anchor" href="#cmd_raw_no_checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd_raw_no_checks</h3>
+<h3 id="cmd_raw_no_checks">cmd_raw_no_checks</h3>
 
 <p>The cmd_raw_no_checks method sends a specified command without running conversions or performing the parameter range checks or notification if it is a hazardous command. This should only be used when it is necessary to fully automate testing involving hazardous commands that intentially have invalid parameters.</p>
 
@@ -1167,8 +792,7 @@
 <span class="n">cmd_raw_no_checks</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">,</span> <span class="s2">"DURATION"</span> <span class="o">=&gt;</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">"TYPE"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="send_raw">
-<a class="anchor" href="#send_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>send_raw</h3>
+<h3 id="send_raw">send_raw</h3>
 
 <div class="note unreleased">
   <p>send_raw not yet implemented in COSMOS 5</p>
@@ -1205,8 +829,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">send_raw</span><span class="p">(</span><span class="s2">"INST1INT"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="send_raw_file">
-<a class="anchor" href="#send_raw_file" aria-hidden="true"><span class="octicon octicon-link"></span></a>send_raw_file</h3>
+<h3 id="send_raw_file">send_raw_file</h3>
 
 <div class="note unreleased">
   <p>send_raw_file not yet implemented in COSMOS 5</p>
@@ -1243,8 +866,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">send_raw_file</span><span class="p">(</span><span class="s2">"INST1INT"</span><span class="p">,</span> <span class="s2">"/home/user/data_to_send.bin"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_cmd_buffer">
-<a class="anchor" href="#get_cmd_buffer" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_cmd_buffer</h3>
+<h3 id="get_cmd_buffer">get_cmd_buffer</h3>
 
 <p>The get_cmd_buffer method returns the raw packet buffer as a Ruby string.</p>
 
@@ -1278,8 +900,7 @@
 <span class="n">buffer</span><span class="p">.</span><span class="nf">unpack</span><span class="p">(</span><span class="s1">'C*'</span><span class="p">)</span> <span class="c1"># See the Ruby documentation for class String method unpack</span>
 </code></pre></div></div>
 
-<h3 id="get_cmd_list">
-<a class="anchor" href="#get_cmd_list" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_cmd_list</h3>
+<h3 id="get_cmd_list">get_cmd_list</h3>
 
 <p>The get_cmd_list method returns an array of the commands that are available for a particular target. The returned array is an array of array swhere each subarray contains the command name and description.</p>
 
@@ -1309,8 +930,7 @@
 <span class="nb">puts</span> <span class="n">cmd_list</span><span class="p">.</span><span class="nf">inspect</span> <span class="c1"># [['TARGET_NAME', 'DESCRIPTION'], ...]</span>
 </code></pre></div></div>
 
-<h3 id="get_cmd_param_list">
-<a class="anchor" href="#get_cmd_param_list" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_cmd_param_list</h3>
+<h3 id="get_cmd_param_list">get_cmd_param_list</h3>
 
 <p>The get_cmd_param_list method returns an array of the command parameters that are available for a particular command. The returned array is an array of arrays where each subarray contains [parameter_name, default_value, states_hash, description, units_full, units, required_flag]</p>
 
@@ -1344,8 +964,7 @@
 <span class="nb">puts</span> <span class="n">cmd_param_list</span><span class="p">.</span><span class="nf">inspect</span> <span class="c1"># [["CCSDSVER", 0, nil, "CCSDS primary header version number", nil, nil, false], ...]</span>
 </code></pre></div></div>
 
-<h3 id="get_cmd_hazardous">
-<a class="anchor" href="#get_cmd_hazardous" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_cmd_hazardous</h3>
+<h3 id="get_cmd_hazardous">get_cmd_hazardous</h3>
 
 <p>The get_cmd_hazardous method returns true/false indicating whether a particular command is flagged as hazardous.</p>
 
@@ -1382,8 +1001,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hazardous</span> <span class="o">=</span> <span class="n">get_cmd_hazardous</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">,</span> <span class="p">{</span><span class="s1">'TYPE'</span> <span class="o">=&gt;</span> <span class="s1">'SPECIAL'</span><span class="p">})</span>
 </code></pre></div></div>
 
-<h3 id="get_cmd_value">
-<a class="anchor" href="#get_cmd_value" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_cmd_value</h3>
+<h3 id="get_cmd_value">get_cmd_value</h3>
 
 <p>The get_cmd_value method returns reads a value from the most recently sent command packet. The pseudo-parameters ‘PACKET_TIMESECONDS’, ‘PACKET_TIMEFORMATTED’, ‘RECEIVED_COUNT’, ‘RECEIVED_TIMEFORMATTED’, and ‘RECEIVED_TIMESECONDS’ are also supported.</p>
 
@@ -1424,8 +1042,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">value</span> <span class="o">=</span> <span class="n">get_cmd_value</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">,</span> <span class="s2">"TEMP"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_cmd_time">
-<a class="anchor" href="#get_cmd_time" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_cmd_time</h3>
+<h3 id="get_cmd_time">get_cmd_time</h3>
 
 <p>The get_cmd_time method returns the time of the most recent command sent.</p>
 
@@ -1460,8 +1077,7 @@
 <span class="n">target_name</span><span class="p">,</span> <span class="n">command_name</span><span class="p">,</span> <span class="n">time</span> <span class="o">=</span> <span class="n">get_cmd_time</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">)</span> <span class="c1"># Name of the most recent INST COLLECT command and time</span>
 </code></pre></div></div>
 
-<h3 id="get_cmd_cnt-since-392">
-<a class="anchor" href="#get_cmd_cnt-since-392" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_cmd_cnt (since 3.9.2)</h3>
+<h3 id="get_cmd_cnt-since-392">get_cmd_cnt (since 3.9.2)</h3>
 
 <p>The get_cmd_cnt method returns the number of times a specified command has been sent.</p>
 
@@ -1493,8 +1109,7 @@
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cmd_cnt</span> <span class="o">=</span> <span class="n">get_cmd_cnt</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">)</span> <span class="c1"># Number of times the INST COLLECT command has been sent</span></code></pre></figure>
 
-<h3 id="get_all_cmd_info-since-410">
-<a class="anchor" href="#get_all_cmd_info-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_all_cmd_info (since 4.1.0)</h3>
+<h3 id="get_all_cmd_info-since-410">get_all_cmd_info (since 4.1.0)</h3>
 
 <p>The get_all_cmd_info method returns the number of times each command has been sent. The return value is an array of arrays where each subarray contains the target name, command name, and packet count for a command.</p>
 
@@ -1505,13 +1120,11 @@
 <span class="nb">puts</span> <span class="s2">"Target: </span><span class="si">#{</span><span class="n">target_name</span><span class="si">}</span><span class="s2">, Command: </span><span class="si">#{</span><span class="n">cmd_name</span><span class="si">}</span><span class="s2">, Packet count: </span><span class="si">#{</span><span class="n">pkt_count</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span></code></pre></figure>
 
-<h2 id="handling-telemetry">
-<a class="anchor" href="#handling-telemetry" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling Telemetry</h2>
+<h2 id="handling-telemetry">Handling Telemetry</h2>
 
 <p>These methods allow the user to interact with telemetry items.</p>
 
-<h3 id="check">
-<a class="anchor" href="#check" aria-hidden="true"><span class="octicon octicon-link"></span></a>check</h3>
+<h3 id="check">check</h3>
 
 <p>The check method performs a verification of a telemetry item using its converted telemetry type. If the verification fails then the script will be paused with an error. If no comparision is given to check then the telemetry item is simply printed to the script output. Note: In most cases using wait_check is a better choice than using check.</p>
 
@@ -1552,8 +1165,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS &gt; 1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="check_raw">
-<a class="anchor" href="#check_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>check_raw</h3>
+<h3 id="check_raw">check_raw</h3>
 
 <p>The check_raw method performs a verification of a telemetry item using its raw telemetry type. If the verification fails then the script will be paused with an error. If no comparision is given to check then the telemetry item is simply printed to the script output. Note: In most cases using wait_check_raw is a better choice than using check_raw.</p>
 
@@ -1594,8 +1206,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check_raw</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS &gt; 1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="check_formatted">
-<a class="anchor" href="#check_formatted" aria-hidden="true"><span class="octicon octicon-link"></span></a>check_formatted</h3>
+<h3 id="check_formatted">check_formatted</h3>
 
 <p>The check_formatted method performs a verification of a telemetry item using its formatted telemetry type. If the verification fails then the script will be paused with an error. If no comparision is given to check then the telemetry item is simply printed to the script output.</p>
 
@@ -1636,8 +1247,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check_formatted</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS == '1'"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="check_with_units">
-<a class="anchor" href="#check_with_units" aria-hidden="true"><span class="octicon octicon-link"></span></a>check_with_units</h3>
+<h3 id="check_with_units">check_with_units</h3>
 
 <p>The check_with_units method performs a verification of a telemetry item using its formatted with units telemetry type. If the verification fails then the script will be paused with an error. If no comparision is given to check then the telemetry item is simply printed to the script output.</p>
 
@@ -1678,8 +1288,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check_with_units</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS == '1'"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="check_tolerance">
-<a class="anchor" href="#check_tolerance" aria-hidden="true"><span class="octicon octicon-link"></span></a>check_tolerance</h3>
+<h3 id="check_tolerance">check_tolerance</h3>
 
 <p>The check_tolerance method checks a converted telemetry item against an expected value with a tolerance. If the verification fails then the script will be paused with an error. Note: In most cases using wait_check_tolerance is a better choice than using check_tolerance.</p>
 
@@ -1724,8 +1333,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check_tolerance</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="check_tolerance_raw">
-<a class="anchor" href="#check_tolerance_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>check_tolerance_raw</h3>
+<h3 id="check_tolerance_raw">check_tolerance_raw</h3>
 
 <p>The check_tolerance_raw method checks a raw telemetry item against an expected value with a tolerance. If the verification fails then the script will be paused with an error. Note: In most cases using wait_check_tolerance_raw is a better choice than using check_tolerance_raw.</p>
 
@@ -1770,8 +1378,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check_tolerance_raw</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="check_expression">
-<a class="anchor" href="#check_expression" aria-hidden="true"><span class="octicon octicon-link"></span></a>check_expression</h3>
+<h3 id="check_expression">check_expression</h3>
 
 <p>The check_expression method evaluates an expression. If the expression evaluates to false the script will be paused with an error. This method can be used to perform more complicated comparisons than using check as shown in the example. Note: In most cases using <a href="#waitcheckexpression">wait_check_expression</a> is a better choice than using check_expression.</p>
 
@@ -1810,8 +1417,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check_expression</span><span class="p">(</span><span class="s2">"tlm('INST HEALTH_STATUS COLLECTS') &gt; 5 and tlm('INST HEALTH_STATUS TEMP1') &gt; 25.0"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="check_exception-since-410">
-<a class="anchor" href="#check_exception-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>check_exception (since 4.1.0)</h3>
+<h3 id="check_exception-since-410">check_exception (since 4.1.0)</h3>
 
 <p>The check_exception method executes a method and expects an exception to be raised. If the method does not raise an exception, a CheckError is raised.</p>
 
@@ -1844,8 +1450,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">check_exception</span><span class="p">(</span><span class="s2">"cmd"</span><span class="p">,</span> <span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"COLLECT"</span><span class="p">,</span> <span class="s2">"TYPE"</span><span class="o">=&gt;</span><span class="s2">"NORMAL"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="tlm">
-<a class="anchor" href="#tlm" aria-hidden="true"><span class="octicon octicon-link"></span></a>tlm</h3>
+<h3 id="tlm">tlm</h3>
 
 <p>The tlm method reads the converted form of a specified telemetry item.</p>
 
@@ -1882,8 +1487,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">value</span> <span class="o">=</span> <span class="n">tlm</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="tlm_raw">
-<a class="anchor" href="#tlm_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>tlm_raw</h3>
+<h3 id="tlm_raw">tlm_raw</h3>
 
 <p>The tlm_raw method reads the raw form of a specified telemetry item.</p>
 
@@ -1920,8 +1524,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">value</span> <span class="o">=</span> <span class="n">tlm_raw</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="tlm_formatted">
-<a class="anchor" href="#tlm_formatted" aria-hidden="true"><span class="octicon octicon-link"></span></a>tlm_formatted</h3>
+<h3 id="tlm_formatted">tlm_formatted</h3>
 
 <p>The tlm_formatted method reads the formatted form of a specified telemetry item.</p>
 
@@ -1958,8 +1561,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">value</span> <span class="o">=</span> <span class="n">tlm_formatted</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="tlm_with_units">
-<a class="anchor" href="#tlm_with_units" aria-hidden="true"><span class="octicon octicon-link"></span></a>tlm_with_units</h3>
+<h3 id="tlm_with_units">tlm_with_units</h3>
 
 <p>The tlm_with_units method reads the formatted with units form of a specified telemetry item.</p>
 
@@ -1996,8 +1598,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">value</span> <span class="o">=</span> <span class="n">tlm_with_units</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="tlm_variable">
-<a class="anchor" href="#tlm_variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>tlm_variable</h3>
+<h3 id="tlm_variable">tlm_variable</h3>
 
 <p>The tlm_variable method reads a specified telemetry item with a variable value type.</p>
 
@@ -2038,8 +1639,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">value</span> <span class="o">=</span> <span class="n">tlm_variable</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">,</span> <span class="ss">:RAW</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_tlm_buffer">
-<a class="anchor" href="#get_tlm_buffer" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_tlm_buffer</h3>
+<h3 id="get_tlm_buffer">get_tlm_buffer</h3>
 
 <p>The get_tlm_buffer method returns the raw packet buffer as a Ruby string.</p>
 
@@ -2073,8 +1673,7 @@
 <span class="n">buffer</span><span class="p">.</span><span class="nf">unpack</span><span class="p">(</span><span class="s1">'C*'</span><span class="p">)</span> <span class="c1"># See the Ruby documentation for class String method unpack</span>
 </code></pre></div></div>
 
-<h3 id="get_tlm_packet">
-<a class="anchor" href="#get_tlm_packet" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_tlm_packet</h3>
+<h3 id="get_tlm_packet">get_tlm_packet</h3>
 
 <p>The get_tlm_packet method returns the names, values, and limits states of all telemetry items in a specified packet. The value is returned as an array of arrays with each entry containing [item_name, item_value, limits_state].</p>
 
@@ -2111,8 +1710,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">names_values_and_limits_states</span> <span class="o">=</span> <span class="n">get_tlm_packet</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"HEALTH_STATUS"</span><span class="p">,</span> <span class="ss">:FORMATTED</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_tlm_values">
-<a class="anchor" href="#get_tlm_values" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_tlm_values</h3>
+<h3 id="get_tlm_values">get_tlm_values</h3>
 
 <p>The get_tlm_values method returns the values, limits_states, limits_settings, and current limits_set for a specified set of telemetry items. Items can be in any telemetry packet in the system. They can all be retrieved using the same value type or a specific value type can be specified for each item.</p>
 
@@ -2145,8 +1743,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">values</span><span class="p">,</span> <span class="n">limits_states</span><span class="p">,</span> <span class="n">limits_settings</span><span class="p">,</span> <span class="n">limits_set</span> <span class="o">=</span> <span class="n">get_tlm_values</span><span class="p">([[</span><span class="no">INST</span><span class="s2">", "</span><span class="no">ADCS</span><span class="s2">", "</span><span class="no">Q1</span><span class="s2">"], ["</span><span class="no">INST</span><span class="s2">", "</span><span class="no">ADCS</span><span class="s2">", "</span><span class="no">Q2</span><span class="s2">"]], [:FORMATTED, :WITH_UNITS])
 </span></code></pre></div></div>
 
-<h3 id="get_tlm_list">
-<a class="anchor" href="#get_tlm_list" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_tlm_list</h3>
+<h3 id="get_tlm_list">get_tlm_list</h3>
 
 <p>The get_tlm_list method returns an array of the telemetry packets and their descriptions that are available for a particular target.</p>
 
@@ -2175,8 +1772,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">packet_names_and_descriptions</span> <span class="o">=</span> <span class="o">=</span> <span class="n">get_tlm_list</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_tlm_item_list">
-<a class="anchor" href="#get_tlm_item_list" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_tlm_item_list</h3>
+<h3 id="get_tlm_item_list">get_tlm_item_list</h3>
 
 <p>The get_tlm_item_list method returns an array of the telemetry items that are available for a particular telemetry packet. The returned value is an array of arrays where each subarray contains [item_name, item_states_hash, description]</p>
 
@@ -2209,8 +1805,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">item_names_states_and_descriptions</span> <span class="o">=</span> <span class="n">get_tlm_item_list</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"HEALTH_STATUS"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_tlm_details">
-<a class="anchor" href="#get_tlm_details" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_tlm_details</h3>
+<h3 id="get_tlm_details">get_tlm_details</h3>
 
 <p>The get_tlm_details method returns an array with details about the specified telemetry items such as their limits and states.</p>
 
@@ -2239,8 +1834,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">details</span> <span class="o">=</span> <span class="n">get_tlm_details</span><span class="p">([[</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"HEALTH_STATUS"</span><span class="p">,</span> <span class="s2">"COLLECTS"</span><span class="p">]])</span>
 </code></pre></div></div>
 
-<h3 id="get_tlm_cnt-since-392">
-<a class="anchor" href="#get_tlm_cnt-since-392" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_tlm_cnt (since 3.9.2)</h3>
+<h3 id="get_tlm_cnt-since-392">get_tlm_cnt (since 3.9.2)</h3>
 
 <p>The get_tlm_cnt method returns the number of times a specified telemetry packet has been received.</p>
 
@@ -2271,8 +1865,7 @@
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">tlm_cnt</span> <span class="o">=</span> <span class="n">get_tlm_cnt</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"HEALTH_STATUS"</span><span class="p">)</span> <span class="c1"># Number of times the INST HEALTH_STATUS telemetry packet has been received.</span></code></pre></figure>
 
-<h3 id="get_all_tlm_info-since-410">
-<a class="anchor" href="#get_all_tlm_info-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_all_tlm_info (since 4.1.0)</h3>
+<h3 id="get_all_tlm_info-since-410">get_all_tlm_info (since 4.1.0)</h3>
 
 <p>The get_all_tlm_info method returns the number of times each telemetry packet has been received. The return value is an array of arrays where each subarray contains the target name, telemetry packet name, and packet count for a telemetry packet.</p>
 
@@ -2283,8 +1876,7 @@
 <span class="nb">puts</span> <span class="s2">"Target: </span><span class="si">#{</span><span class="n">target_name</span><span class="si">}</span><span class="s2">, Packet: </span><span class="si">#{</span><span class="n">pkt_name</span><span class="si">}</span><span class="s2">, Packet count: </span><span class="si">#{</span><span class="n">pkt_count</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span></code></pre></figure>
 
-<h3 id="set_tlm">
-<a class="anchor" href="#set_tlm" aria-hidden="true"><span class="octicon octicon-link"></span></a>set_tlm</h3>
+<h3 id="set_tlm">set_tlm</h3>
 
 <p>The set_tlm method sets a telemetry item value in the Command and Telemetry Server. This value will be overwritten if a new packet is received from an interface. For that reason this method is most useful if interfaces are disconnected or for testing via the Script Runner disconnect mode. (Note that in disconnect mode it will only set telemetry within ScriptRunner. Other tools like TlmViewer will not reflect any changes) Manually setting telemetry values allows for the execution of many logical paths in scripts.</p>
 
@@ -2326,8 +1918,7 @@
 <span class="n">check</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS == 5"</span><span class="p">)</span> <span class="c1"># This will pass since we just set it to 5</span>
 </code></pre></div></div>
 
-<h3 id="set_tlm_raw">
-<a class="anchor" href="#set_tlm_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>set_tlm_raw</h3>
+<h3 id="set_tlm_raw">set_tlm_raw</h3>
 
 <p>The set_tlm_raw method sets a raw telemetry item value in the Command and Telemetry Server. This value will be overwritten if a new packet is received from an interface. For that reason this method is most useful if interfaces are disconnected or for testing via the Script Runner disconnect mode. (Note that in disconnect mode it will only set telemetry within ScriptRunner. Other tools like TlmViewer will not reflect any changes) Manually setting telemetry values allows for the execution of many logical paths in scripts.</p>
 
@@ -2372,8 +1963,7 @@
 <span class="n">check_tolerance</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS TEMP1"</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="c1"># Fail because we set the raw value not the converted value</span>
 </code></pre></div></div>
 
-<h3 id="inject_tlm">
-<a class="anchor" href="#inject_tlm" aria-hidden="true"><span class="octicon octicon-link"></span></a>inject_tlm</h3>
+<h3 id="inject_tlm">inject_tlm</h3>
 
 <p>The inject_tlm method injects a packet into the system as if it was received from an interface.</p>
 
@@ -2426,8 +2016,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">inject_tlm</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"PARAMS"</span><span class="p">,</span> <span class="p">{</span><span class="s1">'VALUE1'</span><span class="o">=&gt;</span><span class="mf">5.0</span><span class="p">,</span> <span class="s1">'VALUE2'</span><span class="o">=&gt;</span><span class="mf">7.0</span><span class="p">})</span>
 </code></pre></div></div>
 
-<h3 id="override_tlm">
-<a class="anchor" href="#override_tlm" aria-hidden="true"><span class="octicon octicon-link"></span></a>override_tlm</h3>
+<h3 id="override_tlm">override_tlm</h3>
 
 <p>The override_tlm method sets the converted value for a telmetry point in the Command and Telemetry Server. This value will be maintained even if a new packet is received on the interface unless the override is canceled with the normalize_tlm method. Note that the interface definition must explicitly add this capability by declaring PROTOCOL READ OverrideProtocol (refer to the documentation for the <a href="http://cosmosrb.com/docs/protocols/#override-protocol">override protocol</a>).</p>
 
@@ -2468,8 +2057,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">override_tlm</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS TEMP1 = 5"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="override_tlm_raw">
-<a class="anchor" href="#override_tlm_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>override_tlm_raw</h3>
+<h3 id="override_tlm_raw">override_tlm_raw</h3>
 
 <p>The override_tlm_raw method sets the raw value for a telmetry point in the Command and Telemetry Server. This value will be maintained even if a new packet is received on the interface unless the override is canceled with the normalize_tlm method. Note that the interface definition must explicitly add this capability by declaring PROTOCOL READ OverrideProtocol (refer to the documentation for the <a href="http://cosmosrb.com/docs/protocols/#override-protocol">override protocol</a>).</p>
 
@@ -2510,8 +2098,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">override_tlm_raw</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS TEMP1 = 5"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="normalize_tlm">
-<a class="anchor" href="#normalize_tlm" aria-hidden="true"><span class="octicon octicon-link"></span></a>normalize_tlm</h3>
+<h3 id="normalize_tlm">normalize_tlm</h3>
 
 <p>The normalize_tlm method clears the override of a telmetry point in the Command and Telemetry Server. Note that the interface definition must explicitly add this capability by declaring PROTOCOL READ OverrideProtocol (refer to the documentation for the <a href="http://cosmosrb.com/docs/protocols/#override-protocol">override protocol</a>).</p>
 
@@ -2548,13 +2135,11 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">normalize_tlm</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS TEMP1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="packet-data-subscriptions">
-<a class="anchor" href="#packet-data-subscriptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packet Data Subscriptions</h2>
+<h2 id="packet-data-subscriptions">Packet Data Subscriptions</h2>
 
 <p>Methods for subscribing to specific packets of data. This provides an interface to ensure that each telemetry packet is received and handled rather than relying on polling where some data may be missed.</p>
 
-<h3 id="subscribe_packet_data">
-<a class="anchor" href="#subscribe_packet_data" aria-hidden="true"><span class="octicon octicon-link"></span></a>subscribe_packet_data</h3>
+<h3 id="subscribe_packet_data">subscribe_packet_data</h3>
 
 <p>The subscribe_packet_data method allows the user to listen for one or more telemetry packets of data to arrive. A unique id is returned to the tool which is used to retrieve the data. The subscribed packets are placed into a queue where they can then be processed one at a time.</p>
 
@@ -2587,8 +2172,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">id</span> <span class="o">=</span> <span class="n">subscribe_packet_data</span><span class="p">([[</span><span class="s1">'INST'</span><span class="p">,</span> <span class="s1">'HEALTH_STATUS'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'INST'</span><span class="p">,</span> <span class="s1">'ADCS'</span><span class="p">]],</span> <span class="mi">2000</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="unsubscribe_packet_data">
-<a class="anchor" href="#unsubscribe_packet_data" aria-hidden="true"><span class="octicon octicon-link"></span></a>unsubscribe_packet_data</h3>
+<h3 id="unsubscribe_packet_data">unsubscribe_packet_data</h3>
 
 <p>The unsubscribe_packet_data method allows the user to stop listening for packet_data. This should be called to reduce the server’s load if the subscription is no longer needed.</p>
 
@@ -2617,8 +2201,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">unsubscribe_packet_data</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_packet">
-<a class="anchor" href="#get_packet" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_packet</h3>
+<h3 id="get_packet">get_packet</h3>
 
 <p>Receives a subscribed telemetry packet. If get_packet is called non-blocking <non_block> = true, get_packet will raise an error if the queue is empty.</non_block></p>
 
@@ -2657,13 +2240,11 @@
 <span class="n">value</span> <span class="o">=</span> <span class="n">packet</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s1">'ITEM_NAME'</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="delays">
-<a class="anchor" href="#delays" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delays</h2>
+<h2 id="delays">Delays</h2>
 
 <p>These methods allow the user to pause the script to wait for telemetry to change or for an amount of time to pass.</p>
 
-<h3 id="wait">
-<a class="anchor" href="#wait" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait</h3>
+<h3 id="wait">wait</h3>
 
 <p>The wait method pauses the script for a configurable amount of time (minimum 10ms) or until a converted telemetry item meets given criteria. It supports three different syntaxes as shown. If no parameters are given then an infinite wait occurs until the user presses Go. Note that on a timeout, wait does not stop the script, usually wait_check is a better choice.</p>
 
@@ -2733,8 +2314,7 @@
 <span class="n">wait</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS == 3"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_raw">
-<a class="anchor" href="#wait_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_raw</h3>
+<h3 id="wait_raw">wait_raw</h3>
 
 <p>The wait_raw method pauses the script for a configurable amount of time or until a raw telemetry item meets given criteria. It supports two different syntaxes as shown. If no parameters are given then an infinite wait occurs until the user presses Go. Note that on a timeout, wait_raw does not stop the script, usually wait_check_raw is a better choice.</p>
 
@@ -2802,8 +2382,7 @@
 <span class="n">wait_raw</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS == 3"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_tolerance">
-<a class="anchor" href="#wait_tolerance" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_tolerance</h3>
+<h3 id="wait_tolerance">wait_tolerance</h3>
 
 <p>The wait_tolerance method pauses the script for a configurable amount of time or until a converted telemetry item meets equals an expected value within a tolerance. Note that on a timeout, wait_tolerance does not stop the script, usually wait_check_tolerance is a better choice.</p>
 
@@ -2856,8 +2435,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_tolerance</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_tolerance_raw">
-<a class="anchor" href="#wait_tolerance_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_tolerance_raw</h3>
+<h3 id="wait_tolerance_raw">wait_tolerance_raw</h3>
 
 <p>The wait_tolerance_raw method pauses the script for a configurable amount of time or until a raw telemetry item meets equals an expected value within a tolerance. Note that on a timeout, wait_tolerance_raw does not stop the script, usually wait_check_tolerance_raw is a better choice.</p>
 
@@ -2910,8 +2488,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_tolerance_raw</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_expression">
-<a class="anchor" href="#wait_expression" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_expression</h3>
+<h3 id="wait_expression">wait_expression</h3>
 
 <p>The wait_expression method pauses the script until an expression is evaluated to be true or a timeout occurs. If a timeout occurs the script will continue. This method can be used to perform more complicated comparisons than using wait as shown in the example. Note that on a timeout, wait_expression does not stop the script, usually <a href="#waitcheckexpression">wait_check_expression</a> is a better choice.</p>
 
@@ -2948,8 +2525,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_expression</span><span class="p">(</span><span class="s2">"tlm('INST HEALTH_STATUS COLLECTS') &gt; 5 and tlm('INST HEALTH_STATUS TEMP1') &gt; 25.0"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_packet">
-<a class="anchor" href="#wait_packet" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_packet</h3>
+<h3 id="wait_packet">wait_packet</h3>
 
 <p>The wait_packet method pauses the script until a certain number of packets have been received. If a timeout occurs the script will continue. Note that on a timeout, wait_packet does not stop the script, usually wait_check_packet is a better choice.</p>
 
@@ -2994,8 +2570,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_packet</span><span class="p">(</span><span class="s1">'INST'</span><span class="p">,</span> <span class="s1">'HEALTH_STATUS'</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># Wait for 5 INST HEALTH_STATUS packets over 10s</span>
 </code></pre></div></div>
 
-<h3 id="wait_check">
-<a class="anchor" href="#wait_check" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_check</h3>
+<h3 id="wait_check">wait_check</h3>
 
 <p>The wait_check method combines the wait and check keywords into one. This pauses the script until the converted value of a telemetry item meets given criteria or times out. On a timeout the script stops.</p>
 
@@ -3044,8 +2619,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_check</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS &gt; 5"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_check_raw">
-<a class="anchor" href="#wait_check_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_check_raw</h3>
+<h3 id="wait_check_raw">wait_check_raw</h3>
 
 <p>The wait_check_raw method combines the wait_raw and check_raw keywords into one. This pauses the script until the raw value of a telemetry item meets given criteria or times out. On a timeout the script stops.</p>
 
@@ -3094,8 +2668,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_check_raw</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS &gt; 5"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_check_tolerance">
-<a class="anchor" href="#wait_check_tolerance" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_check_tolerance</h3>
+<h3 id="wait_check_tolerance">wait_check_tolerance</h3>
 
 <p>The wait_check_tolerance method pauses the script for a configurable amount of time or until a converted telemetry item equals an expected value within a tolerance. On a timeout the script stops.</p>
 
@@ -3148,8 +2721,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_check_tolerance</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_check_tolerance_raw">
-<a class="anchor" href="#wait_check_tolerance_raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_check_tolerance_raw</h3>
+<h3 id="wait_check_tolerance_raw">wait_check_tolerance_raw</h3>
 
 <p>The wait_check_tolerance_raw method pauses the script for a configurable amount of time or until a raw telemetry item meets equals an expected value within a tolerance. On a timeout the script stops.</p>
 
@@ -3202,8 +2774,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_check_tolerance_raw</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS COLLECTS"</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_check_expression">
-<a class="anchor" href="#wait_check_expression" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_check_expression</h3>
+<h3 id="wait_check_expression">wait_check_expression</h3>
 
 <p>The wait_check_expression method pauses the script until an expression is evaluated to be true or a timeout occurs. If a timeout occurs the script will stop. This method can be used to perform more complicated comparisons than using wait as shown in the example. Also see the syntax notes for <a href="#checkexpression">check_expression</a>.</p>
 
@@ -3240,8 +2811,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_check_expression</span><span class="p">(</span><span class="s2">"tlm('INST HEALTH_STATUS COLLECTS') &gt; 5 and tlm('INST HEALTH_STATUS TEMP1') &gt; 25.0"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="wait_check_packet">
-<a class="anchor" href="#wait_check_packet" aria-hidden="true"><span class="octicon octicon-link"></span></a>wait_check_packet</h3>
+<h3 id="wait_check_packet">wait_check_packet</h3>
 
 <p>The wait_check_packet method pauses the script until a certain number of packets have been received. If a timeout occurs the script will stop.</p>
 
@@ -3286,8 +2856,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wait_check_packet</span><span class="p">(</span><span class="s1">'INST'</span><span class="p">,</span> <span class="s1">'HEALTH_STATUS'</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># Wait for 5 INST HEALTH_STATUS packets over 10s</span>
 </code></pre></div></div>
 
-<h2 id="limits">
-<a class="anchor" href="#limits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limits</h2>
+<h2 id="limits">Limits</h2>
 
 <div class="note unreleased">
   <p>Limits API not fully implemented in COSMOS 5</p>
@@ -3295,8 +2864,7 @@
 
 <p>These methods deal with handling telemetry limits.</p>
 
-<h3 id="limits_enabled">
-<a class="anchor" href="#limits_enabled" aria-hidden="true"><span class="octicon octicon-link"></span></a>limits_enabled?</h3>
+<h3 id="limits_enabled">limits_enabled?</h3>
 
 <p>The limits_enabled? method returns true/false depending on whether limits are enabled for a telemetry item.</p>
 
@@ -3333,8 +2901,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">enabled</span> <span class="o">=</span> <span class="n">limits_enabled?</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS TEMP1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="enable_limits">
-<a class="anchor" href="#enable_limits" aria-hidden="true"><span class="octicon octicon-link"></span></a>enable_limits</h3>
+<h3 id="enable_limits">enable_limits</h3>
 
 <p>The enable_limits method enables limits monitoring for the specified telemetry item.</p>
 
@@ -3371,8 +2938,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">enable_limits</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS TEMP1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="disable_limits">
-<a class="anchor" href="#disable_limits" aria-hidden="true"><span class="octicon octicon-link"></span></a>disable_limits</h3>
+<h3 id="disable_limits">disable_limits</h3>
 
 <p>The disable_limits method disables limits monitoring for the specified telemetry item.</p>
 
@@ -3409,8 +2975,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">disable_limits</span><span class="p">(</span><span class="s2">"INST HEALTH_STATUS TEMP1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="enable_limits_group">
-<a class="anchor" href="#enable_limits_group" aria-hidden="true"><span class="octicon octicon-link"></span></a>enable_limits_group</h3>
+<h3 id="enable_limits_group">enable_limits_group</h3>
 
 <p>The enable_limits_group method enables limits monitoring on a set of telemetry items specified in a limits group.</p>
 
@@ -3439,8 +3004,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">enable_limits_group</span><span class="p">(</span><span class="s2">"SAFE_MODE"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="disable_limits_group">
-<a class="anchor" href="#disable_limits_group" aria-hidden="true"><span class="octicon octicon-link"></span></a>disable_limits_group</h3>
+<h3 id="disable_limits_group">disable_limits_group</h3>
 
 <p>The disable_limits_group method disables limits monitoring on a set of telemetry items specified in a limits group.</p>
 
@@ -3469,8 +3033,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">disable_limits_group</span><span class="p">(</span><span class="s2">"SAFE_MODE"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_limits_groups">
-<a class="anchor" href="#get_limits_groups" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_limits_groups</h3>
+<h3 id="get_limits_groups">get_limits_groups</h3>
 
 <p>The get_limits_groups method returns the list of limits groups in the system.</p>
 
@@ -3479,8 +3042,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">limits_groups</span> <span class="o">=</span> <span class="n">get_limits_groups</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="set_limits_set">
-<a class="anchor" href="#set_limits_set" aria-hidden="true"><span class="octicon octicon-link"></span></a>set_limits_set</h3>
+<h3 id="set_limits_set">set_limits_set</h3>
 
 <p>The set_limits_set method sets the current limits set. The default limits set is :DEFAULT.</p>
 
@@ -3509,8 +3071,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_limits_set</span><span class="p">(</span><span class="s2">"DEFAULT"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_limits_set">
-<a class="anchor" href="#get_limits_set" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_limits_set</h3>
+<h3 id="get_limits_set">get_limits_set</h3>
 
 <p>The get_limits_set method returns the name of the current limits set. The default limits set is :DEFAULT.</p>
 
@@ -3519,8 +3080,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">limits_set</span> <span class="o">=</span> <span class="n">get_limits_set</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="get_limits_sets">
-<a class="anchor" href="#get_limits_sets" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_limits_sets</h3>
+<h3 id="get_limits_sets">get_limits_sets</h3>
 
 <p>The get_limits_sets method returns the list of limits sets in the system.</p>
 
@@ -3529,8 +3089,7 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">limits_sets</span> <span class="o">=</span> <span class="n">get_limits_sets</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="get_limits">
-<a class="anchor" href="#get_limits" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_limits</h3>
+<h3 id="get_limits">get_limits</h3>
 
 <p>The get_limits method returns limits settings for a telemetry point.</p>
 
@@ -3551,8 +3110,7 @@ Example:
 <span class="n">limits_set</span><span class="p">,</span> <span class="n">persistence_setting</span><span class="p">,</span> <span class="n">enabled</span><span class="p">,</span> <span class="n">red_low</span><span class="p">,</span> <span class="n">yellow_low</span><span class="p">,</span> <span class="n">yellow_high</span><span class="p">,</span> <span class="n">red_high</span><span class="p">,</span> <span class="n">green_low</span><span class="p">,</span> <span class="n">green_high</span> <span class="o">=</span> <span class="n">get_limits</span><span class="p">(</span><span class="s1">'INST'</span><span class="p">,</span> <span class="s1">'HEALTH_STATUS'</span><span class="p">,</span> <span class="s1">'TEMP1'</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="set_limits">
-<a class="anchor" href="#set_limits" aria-hidden="true"><span class="octicon octicon-link"></span></a>set_limits</h3>
+<h3 id="set_limits">set_limits</h3>
 
 <p>The set_limits_method sets limits settings for a telemetry point. Note: In most cases it would be better to update your config files or use different limits sets rather than changing limits settings in realtime.</p>
 
@@ -3625,8 +3183,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_limits</span><span class="p">(</span><span class="s1">'INST'</span><span class="p">,</span> <span class="s1">'HEALTH_STATUS'</span><span class="p">,</span> <span class="s1">'TEMP1'</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="ss">:TVAC</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_out_of_limits">
-<a class="anchor" href="#get_out_of_limits" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_out_of_limits</h3>
+<h3 id="get_out_of_limits">get_out_of_limits</h3>
 
 <p>The get_out_of_limits method returns an array with the target_name, packet_name, item_name, and limits_state of all items that are out of their limits ranges.</p>
 
@@ -3635,8 +3192,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">out_of_limits_items</span> <span class="o">=</span> <span class="n">get_out_of_limits</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="get_overall_limits_state">
-<a class="anchor" href="#get_overall_limits_state" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_overall_limits_state</h3>
+<h3 id="get_overall_limits_state">get_overall_limits_state</h3>
 
 <p>The get_overall_limits_state method returns the overall limits state for the COSMOS system. Returns :GREEN, :YELLOW, :RED, or :STALE.</p>
 
@@ -3666,8 +3222,7 @@ Example:
 <span class="n">overall_limits_state</span> <span class="o">=</span> <span class="n">get_overall_limits_state</span><span class="p">([[</span><span class="s1">'INST'</span><span class="p">,</span> <span class="s1">'HEALTH_STATUS'</span><span class="p">,</span> <span class="s1">'TEMP1'</span><span class="p">]])</span>
 </code></pre></div></div>
 
-<h3 id="get_stale">
-<a class="anchor" href="#get_stale" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_stale</h3>
+<h3 id="get_stale">get_stale</h3>
 
 <p>The get_stale method returns a list of stale packets. The return value is an array of arrays where each subarray contains the target name and packet name for a stale packet.</p>
 
@@ -3703,13 +3258,11 @@ Example:
 <span class="k">end</span>
 </code></pre></div></div>
 
-<h2 id="limits-events">
-<a class="anchor" href="#limits-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limits Events</h2>
+<h2 id="limits-events">Limits Events</h2>
 
 <p>Methods for handling limits events.</p>
 
-<h3 id="subscribe_limits_events">
-<a class="anchor" href="#subscribe_limits_events" aria-hidden="true"><span class="octicon octicon-link"></span></a>subscribe_limits_events</h3>
+<h3 id="subscribe_limits_events">subscribe_limits_events</h3>
 
 <p>The subscribe_limits_events method allows the user to listen for events regarding telemetry items going out of limits or changes in limits set. A unique id is returned to the tool which is used to retrieve the events.</p>
 
@@ -3738,8 +3291,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">id</span> <span class="o">=</span> <span class="n">subscribe_limits_events</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="unsubscribe_limits_events">
-<a class="anchor" href="#unsubscribe_limits_events" aria-hidden="true"><span class="octicon octicon-link"></span></a>unsubscribe_limits_events</h3>
+<h3 id="unsubscribe_limits_events">unsubscribe_limits_events</h3>
 
 <p>The unsubscribe_limits_events method allows the user to stop listening for events regarding telemetry items going out of limits or changes in limits set.</p>
 
@@ -3768,8 +3320,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">unsubscribe_limits_events</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_limits_event">
-<a class="anchor" href="#get_limits_event" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_limits_event</h3>
+<h3 id="get_limits_event">get_limits_event</h3>
 
 <p>The get_limits_event method returns a limits event to the user who has already subscribed to limits event. Can be run in a non-blocking or blocking manner.</p>
 
@@ -3810,13 +3361,11 @@ Example:
 <span class="nb">puts</span> <span class="n">event</span><span class="p">.</span><span class="nf">inspect</span> <span class="c1"># [:LIMITS_SETTINGS, "TARGET_NAME", "PACKET_NAME", "ITEM_NAME", :LIMITS_SET, persistence_setting, enabled_flag, red_low, yellow_low, yellow_high, red_high, green_low, green_high)</span>
 </code></pre></div></div>
 
-<h2 id="targets">
-<a class="anchor" href="#targets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Targets</h2>
+<h2 id="targets">Targets</h2>
 
 <p>Methods for getting knowledge about targets.</p>
 
-<h3 id="get_target_list">
-<a class="anchor" href="#get_target_list" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_target_list</h3>
+<h3 id="get_target_list">get_target_list</h3>
 
 <p>The get_target_list method returns a list of the targets in the system in an array.</p>
 
@@ -3825,8 +3374,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">targets</span> <span class="o">=</span> <span class="n">get_target_list</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="get_target_info-since-392">
-<a class="anchor" href="#get_target_info-since-392" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_target_info (since 3.9.2)</h3>
+<h3 id="get_target_info-since-392">get_target_info (since 3.9.2)</h3>
 
 <p>The get_target_info method returns information about a target. The information includes the number of commands sent to the target and the number of telemetry packets received from the target.</p>
 
@@ -3852,8 +3400,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cmd_cnt</span><span class="p">,</span> <span class="n">tlm_cnt</span> <span class="o">=</span> <span class="n">get_target_info</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="get_all_target_info-since-410">
-<a class="anchor" href="#get_all_target_info-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_all_target_info (since 4.1.0)</h3>
+<h3 id="get_all_target_info-since-410">get_all_target_info (since 4.1.0)</h3>
 
 <p>The get_all_target_info method returns information about all targets. The return value is an array of arrays where each subarray contains the target name, interface name, command count, and telemetry count for a target.</p>
 
@@ -3864,8 +3411,7 @@ Example:
 <span class="nb">puts</span> <span class="s2">"Target: </span><span class="si">#{</span><span class="n">target_name</span><span class="si">}</span><span class="s2">, Interface: </span><span class="si">#{</span><span class="n">interface_name</span><span class="si">}</span><span class="s2">, Cmd count: </span><span class="si">#{</span><span class="n">cmd_count</span><span class="si">}</span><span class="s2">, Tlm count: </span><span class="si">#{</span><span class="n">tlm_count</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span></code></pre></figure>
 
-<h3 id="get_target_ignored_parameters-since-410">
-<a class="anchor" href="#get_target_ignored_parameters-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_target_ignored_parameters (since 4.1.0)</h3>
+<h3 id="get_target_ignored_parameters-since-410">get_target_ignored_parameters (since 4.1.0)</h3>
 
 <p>The get_target_ignored_parameters method returns a list of ignored command parameters for the specified target. Ignored command parameters are those specified by the IGNORE_PARAMETER keyword in the target configuration.</p>
 
@@ -3891,8 +3437,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ignored_params</span> <span class="o">=</span> <span class="n">get_target_ignored_parameters</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="get_target_ignored_items-since-410">
-<a class="anchor" href="#get_target_ignored_items-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_target_ignored_items (since 4.1.0)</h3>
+<h3 id="get_target_ignored_items-since-410">get_target_ignored_items (since 4.1.0)</h3>
 
 <p>The get_target_ignored_items method returns a list of ignored telemetry items for the specified target. Ignored telemetry items are those specified by the IGNORE_ITEM keyword in the target configuration.</p>
 
@@ -3918,13 +3463,11 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ignored_items</span> <span class="o">=</span> <span class="n">get_target_ignored_items</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">)</span></code></pre></figure>
 
-<h2 id="interfaces">
-<a class="anchor" href="#interfaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interfaces</h2>
+<h2 id="interfaces">Interfaces</h2>
 
 <p>These methods allow the user to manipulate COSMOS interfaces.</p>
 
-<h3 id="connect_interface">
-<a class="anchor" href="#connect_interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>connect_interface</h3>
+<h3 id="connect_interface">connect_interface</h3>
 
 <p>The connect_interface method connects to targets associated with a COSMOS interface.</p>
 
@@ -3957,8 +3500,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">connect_interface</span><span class="p">(</span><span class="s2">"INT1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="disconnect_interface">
-<a class="anchor" href="#disconnect_interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>disconnect_interface</h3>
+<h3 id="disconnect_interface">disconnect_interface</h3>
 
 <p>The disconnect_interface method disconnects from targets associated with a COSMOS interface.</p>
 
@@ -3987,8 +3529,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">disconnect_interface</span><span class="p">(</span><span class="s2">"INT1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="interface_state">
-<a class="anchor" href="#interface_state" aria-hidden="true"><span class="octicon octicon-link"></span></a>interface_state</h3>
+<h3 id="interface_state">interface_state</h3>
 
 <p>The interface_state method retrieves the current state of a COSMOS interface. Returns either ‘CONNECTED’, ‘DISCONNECTED’, or ‘ATTEMPTING’.</p>
 
@@ -4017,8 +3558,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">interface_state</span><span class="p">(</span><span class="s2">"INT1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="map_target_to_interface">
-<a class="anchor" href="#map_target_to_interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>map_target_to_interface</h3>
+<h3 id="map_target_to_interface">map_target_to_interface</h3>
 
 <p>The map_target_to_interface method allows a target to be mapped to an interface in realtime. If the target is already mapped to an interface it will be unmapped from the existing interface before being mapped to the new interface.</p>
 
@@ -4051,8 +3591,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">map_target_to_interface</span><span class="p">(</span><span class="s2">"INST"</span><span class="p">,</span> <span class="s2">"INT2"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_interface_names">
-<a class="anchor" href="#get_interface_names" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_interface_names</h3>
+<h3 id="get_interface_names">get_interface_names</h3>
 
 <p>The get_interface_names method returns a list of the interfaces in the system in an array.</p>
 
@@ -4061,8 +3600,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">interface_names</span> <span class="o">=</span> <span class="n">get_interface_names</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="get_interface_targets-since-392">
-<a class="anchor" href="#get_interface_targets-since-392" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_interface_targets (since 3.9.2)</h3>
+<h3 id="get_interface_targets-since-392">get_interface_targets (since 3.9.2)</h3>
 
 <p>The get_interface_targets method returns the list of targets which are mapped to the given interface.</p>
 
@@ -4091,8 +3629,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">targets</span> <span class="o">=</span> <span class="n">get_interface_targets</span><span class="p">(</span><span class="s2">"INST_INT"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_interface_info-since-392">
-<a class="anchor" href="#get_interface_info-since-392" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_interface_info (since 3.9.2)</h3>
+<h3 id="get_interface_info-since-392">get_interface_info (since 3.9.2)</h3>
 
 <p>The get_interface_info method returns information about an interface. The information includes the connection state, number of connected clients, transmit queue size, receive queue size, bytes transmitted, bytes received, command count, and telemetry count.</p>
 
@@ -4118,8 +3655,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">state</span><span class="p">,</span> <span class="n">clients</span><span class="p">,</span> <span class="n">tx_q_size</span><span class="p">,</span> <span class="n">rx_q_size</span><span class="p">,</span> <span class="n">bytes_tx</span><span class="p">,</span> <span class="n">bytes_rx</span><span class="p">,</span> <span class="n">cmd_cnt</span><span class="p">,</span> <span class="n">tlm_cnt</span> <span class="o">=</span> <span class="n">get_interface_info</span><span class="p">(</span><span class="s2">"INST_INT"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="get_all_interface_info-since-410">
-<a class="anchor" href="#get_all_interface_info-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_all_interface_info (since 4.1.0)</h3>
+<h3 id="get_all_interface_info-since-410">get_all_interface_info (since 4.1.0)</h3>
 
 <p>The get_all_interface_info method returns information about all interfaces. The return value is an array of arrays where each subarray contains the interface name, connection state, number of connected clients, transmit queue size, receive queue size, bytes transmitted, bytes received, command count, and telemetry count.</p>
 
@@ -4132,13 +3668,11 @@ Example:
 <span class="nb">puts</span> <span class="s2">"Cmd count: </span><span class="si">#{</span><span class="n">cmd_count</span><span class="si">}</span><span class="s2">, Tlm count: </span><span class="si">#{</span><span class="n">tlm_count</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span></code></pre></figure>
 
-<h2 id="routers">
-<a class="anchor" href="#routers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Routers</h2>
+<h2 id="routers">Routers</h2>
 
 <p>These methods allow the user to manipulate COSMOS routers.</p>
 
-<h3 id="connect_router">
-<a class="anchor" href="#connect_router" aria-hidden="true"><span class="octicon octicon-link"></span></a>connect_router</h3>
+<h3 id="connect_router">connect_router</h3>
 
 <p>The connect_router method connects a COSMOS router.</p>
 
@@ -4171,8 +3705,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">connect_ROUTER</span><span class="p">(</span><span class="s2">"INT1_ROUTER"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="disconnect_router">
-<a class="anchor" href="#disconnect_router" aria-hidden="true"><span class="octicon octicon-link"></span></a>disconnect_router</h3>
+<h3 id="disconnect_router">disconnect_router</h3>
 
 <p>The disconnect_router method disconnects a COSMOS router.</p>
 
@@ -4201,8 +3734,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">disconnect_router</span><span class="p">(</span><span class="s2">"INT1_ROUTER"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="router_state">
-<a class="anchor" href="#router_state" aria-hidden="true"><span class="octicon octicon-link"></span></a>router_state</h3>
+<h3 id="router_state">router_state</h3>
 
 <p>The router_state method retrieves the current state of a COSMOS router. Returns either ‘CONNECTED’, ‘DISCONNECTED’, or ‘ATTEMPTING’.</p>
 
@@ -4231,8 +3763,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">router_state</span><span class="p">(</span><span class="s2">"INT1_ROUTER"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_router_names">
-<a class="anchor" href="#get_router_names" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_router_names</h3>
+<h3 id="get_router_names">get_router_names</h3>
 
 <p>The get_router_names method returns a list of the routers in the system in an array.</p>
 
@@ -4241,8 +3772,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">router_names</span> <span class="o">=</span> <span class="n">get_router_names</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="get_router_info-since-392">
-<a class="anchor" href="#get_router_info-since-392" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_router_info (since 3.9.2)</h3>
+<h3 id="get_router_info-since-392">get_router_info (since 3.9.2)</h3>
 
 <p>The get_router_info method returns information about a router. The information includes the connection state, number of connected clients, transmit queue size, receive queue size, bytes transmitted, bytes received, packets received, and packets sent.</p>
 
@@ -4268,8 +3798,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">state</span><span class="p">,</span> <span class="n">clients</span><span class="p">,</span> <span class="n">tx_q_size</span><span class="p">,</span> <span class="n">rx_q_size</span><span class="p">,</span> <span class="n">bytes_tx</span><span class="p">,</span> <span class="n">bytes_rx</span><span class="p">,</span> <span class="n">pkts_rcvd</span><span class="p">,</span> <span class="n">pkts_sent</span> <span class="o">=</span> <span class="n">get_router_info</span><span class="p">(</span><span class="s2">"INST_ROUTER"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="get_all_router_info-since-410">
-<a class="anchor" href="#get_all_router_info-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_all_router_info (since 4.1.0)</h3>
+<h3 id="get_all_router_info-since-410">get_all_router_info (since 4.1.0)</h3>
 
 <p>The get_all_router_info method returns information about all routers. The return value is an array of arrays where each subarray contains the router name, connection state, number of connected clients, transmit queue size, receive queue size, bytes transmitted, bytes received, packets received, and packets sent.</p>
 
@@ -4282,13 +3811,11 @@ Example:
 <span class="nb">puts</span> <span class="s2">"Packets received: </span><span class="si">#{</span><span class="n">pkts_rcvd</span><span class="si">}</span><span class="s2">, Packets sent: </span><span class="si">#{</span><span class="n">pkts_sent</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span></code></pre></figure>
 
-<h2 id="logging">
-<a class="anchor" href="#logging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logging</h2>
+<h2 id="logging">Logging</h2>
 
 <p>These methods control command and telemetry logging.</p>
 
-<h3 id="get_cmd_log_filename">
-<a class="anchor" href="#get_cmd_log_filename" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_cmd_log_filename</h3>
+<h3 id="get_cmd_log_filename">get_cmd_log_filename</h3>
 
 <p>The get_cmd_log_filename method retrieves the current command log file for the specified log writer. Returns nil if not logging.</p>
 
@@ -4317,8 +3844,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_cmd_log_filename</span><span class="p">(</span><span class="s2">"INT1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_tlm_log_filename">
-<a class="anchor" href="#get_tlm_log_filename" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_tlm_log_filename</h3>
+<h3 id="get_tlm_log_filename">get_tlm_log_filename</h3>
 
 <p>The get_tlm_log_filename method retrieves the current telemetry log file for the specified log writer. Returns nil if not logging.</p>
 
@@ -4347,8 +3873,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_tlm_log_filename</span><span class="p">(</span><span class="s2">"INT1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="start_logging">
-<a class="anchor" href="#start_logging" aria-hidden="true"><span class="octicon octicon-link"></span></a>start_logging</h3>
+<h3 id="start_logging">start_logging</h3>
 
 <p>The start_logging method starts logging of commands sent and telemetry received for a packet log writer. If a log writer is already logging, this will start a new log file.</p>
 
@@ -4381,8 +3906,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">start_logging</span><span class="p">(</span><span class="s2">"int1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="start_cmd_log">
-<a class="anchor" href="#start_cmd_log" aria-hidden="true"><span class="octicon octicon-link"></span></a>start_cmd_log</h3>
+<h3 id="start_cmd_log">start_cmd_log</h3>
 
 <p>The start_cmd_log method starts logging of commands sent. If a log writer is already logging, this will start a new log file.</p>
 
@@ -4415,8 +3939,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">start_cmd_log</span><span class="p">(</span><span class="s2">"int1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="start_tlm_log">
-<a class="anchor" href="#start_tlm_log" aria-hidden="true"><span class="octicon octicon-link"></span></a>start_tlm_log</h3>
+<h3 id="start_tlm_log">start_tlm_log</h3>
 
 <p>The start_tlm_log method starts logging of telemetry received. If a log writer is already logging, this will start a new log file.</p>
 
@@ -4449,8 +3972,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">start_tlm_log</span><span class="p">(</span><span class="s2">"int1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="stop_logging">
-<a class="anchor" href="#stop_logging" aria-hidden="true"><span class="octicon octicon-link"></span></a>stop_logging</h3>
+<h3 id="stop_logging">stop_logging</h3>
 
 <p>The stop_logging method stops logging of commands sent and telemetry received for a packet log writer.</p>
 
@@ -4479,8 +4001,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stop_logging</span><span class="p">(</span><span class="s2">"int1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="stop_cmd_log">
-<a class="anchor" href="#stop_cmd_log" aria-hidden="true"><span class="octicon octicon-link"></span></a>stop_cmd_log</h3>
+<h3 id="stop_cmd_log">stop_cmd_log</h3>
 
 <p>The stop_cmd_log method stops logging of commands sent.</p>
 
@@ -4509,8 +4030,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stop_cmd_log</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="stop_tlm_log">
-<a class="anchor" href="#stop_tlm_log" aria-hidden="true"><span class="octicon octicon-link"></span></a>stop_tlm_log</h3>
+<h3 id="stop_tlm_log">stop_tlm_log</h3>
 
 <p>The stop_tlm_log method stops logging of telemetry received.</p>
 
@@ -4539,8 +4059,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stop_tlm_log</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="get_server_message_log_filename">
-<a class="anchor" href="#get_server_message_log_filename" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_server_message_log_filename</h3>
+<h3 id="get_server_message_log_filename">get_server_message_log_filename</h3>
 
 <p>Returns the filename of the COSMOS Command and Telemetry Server message log.</p>
 
@@ -4549,8 +4068,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filename</span> <span class="o">=</span> <span class="n">get_server_message_log_filename</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="start_new_server_message_log">
-<a class="anchor" href="#start_new_server_message_log" aria-hidden="true"><span class="octicon octicon-link"></span></a>start_new_server_message_log</h3>
+<h3 id="start_new_server_message_log">start_new_server_message_log</h3>
 
 <p>Starts a new COSMOS Command and Telemetry Server message log.</p>
 
@@ -4559,8 +4077,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">start_new_server_message_log</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="start_raw_logging_interface">
-<a class="anchor" href="#start_raw_logging_interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>start_raw_logging_interface</h3>
+<h3 id="start_raw_logging_interface">start_raw_logging_interface</h3>
 
 <p>The start_raw_logging_interface method starts logging of raw data on one or all interfaces. This is for debugging purposes only.</p>
 
@@ -4589,8 +4106,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">start_raw_logging_interface</span> <span class="p">(</span><span class="s2">"int1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="stop_raw_logging_interface">
-<a class="anchor" href="#stop_raw_logging_interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>stop_raw_logging_interface</h3>
+<h3 id="stop_raw_logging_interface">stop_raw_logging_interface</h3>
 
 <p>The stop_raw_logging_interface method stops logging of raw data on one or all interfaces. This is for debugging purposes only.</p>
 
@@ -4619,8 +4135,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stop_raw_logging_interface</span> <span class="p">(</span><span class="s2">"int1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="start_raw_logging_router">
-<a class="anchor" href="#start_raw_logging_router" aria-hidden="true"><span class="octicon octicon-link"></span></a>start_raw_logging_router</h3>
+<h3 id="start_raw_logging_router">start_raw_logging_router</h3>
 
 <p>The start_raw_logging_router method starts logging of raw data on one or all routers. This is for debugging purposes only.</p>
 
@@ -4649,8 +4164,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">start_raw_logging_router</span><span class="p">(</span><span class="s2">"router1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="stop_raw_logging_router">
-<a class="anchor" href="#stop_raw_logging_router" aria-hidden="true"><span class="octicon octicon-link"></span></a>stop_raw_logging_router</h3>
+<h3 id="stop_raw_logging_router">stop_raw_logging_router</h3>
 
 <p>The stop_raw_logging_router method stops logging of raw data on one or all routers. This is for debugging purposes only.</p>
 
@@ -4679,8 +4193,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stop_raw_logging_router</span><span class="p">(</span><span class="s2">"router1"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_packet_loggers-since-410">
-<a class="anchor" href="#get_packet_loggers-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_packet_loggers (since 4.1.0)</h3>
+<h3 id="get_packet_loggers-since-410">get_packet_loggers (since 4.1.0)</h3>
 
 <p>The get_packet_loggers method returns a list of the packet loggers in the system.</p>
 
@@ -4688,8 +4201,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">packet_loggers</span> <span class="o">=</span> <span class="n">get_packet_loggers</span><span class="p">()</span></code></pre></figure>
 
-<h3 id="get_packet_logger_info-since-392">
-<a class="anchor" href="#get_packet_logger_info-since-392" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_packet_logger_info (since 3.9.2)</h3>
+<h3 id="get_packet_logger_info-since-392">get_packet_logger_info (since 3.9.2)</h3>
 
 <p>The get_packet_logger_info method returns information about a packet logger. The information includes the interfaces associated with the logger, command log enable flag, command queue size, command filename, command file size, telemetry log enable flag, telemetry queue size, telemetry filename, and telemetry file size.</p>
 
@@ -4715,8 +4227,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">interfaces</span><span class="p">,</span> <span class="n">cmd_logging</span><span class="p">,</span> <span class="n">cmd_q_size</span><span class="p">,</span> <span class="n">cmd_filename</span><span class="p">,</span> <span class="n">cmd_file_size</span><span class="p">,</span> <span class="n">tlm_logging</span><span class="p">,</span> <span class="n">tlm_q_size</span><span class="p">,</span> <span class="n">tlm_filename</span><span class="p">,</span> <span class="n">tlm_file_size</span> <span class="o">=</span> <span class="n">get_packet_logger_info</span><span class="p">(</span><span class="s2">"DEFAULT"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="get_all_packet_logger_info-since-410">
-<a class="anchor" href="#get_all_packet_logger_info-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_all_packet_logger_info (since 4.1.0)</h3>
+<h3 id="get_all_packet_logger_info-since-410">get_all_packet_logger_info (since 4.1.0)</h3>
 
 <p>The get_all_packet_logger_info method returns information about all packet loggers. The return value is an array of arrays where each subarray contains the name, associated interfaces, command log enable flag, command queue size, command filename, command file size, telemetry log enable flag, telemetry queue size, telemetry filename, and telemetry file size for a packet logger.</p>
 
@@ -4730,8 +4241,7 @@ Example:
 <span class="nb">puts</span> <span class="s2">"Tlm logging - enable: </span><span class="si">#{</span><span class="n">tlm_logging</span><span class="si">}</span><span class="s2">, queue size: </span><span class="si">#{</span><span class="n">tlm_q_size</span><span class="si">}</span><span class="s2">, filename: </span><span class="si">#{</span><span class="n">tlm_filename</span><span class="si">}</span><span class="s2">, file size: </span><span class="si">#{</span><span class="n">tlm_file_size</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span></code></pre></figure>
 
-<h3 id="get_output_logs_filenames-since-410">
-<a class="anchor" href="#get_output_logs_filenames-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_output_logs_filenames (since 4.1.0)</h3>
+<h3 id="get_output_logs_filenames-since-410">get_output_logs_filenames (since 4.1.0)</h3>
 
 <p>The get_output_logs_filenames method returns a list of files in the output logs directory.</p>
 
@@ -4760,13 +4270,11 @@ Example:
 <span class="n">cmd_logs</span> <span class="o">=</span> <span class="n">get_output_logs_filenames</span><span class="p">(</span><span class="s1">'*\_cmd.bin'</span><span class="p">)</span>
 <span class="n">server</span><span class="o">*</span><span class="n">msg_logs</span> <span class="o">=</span> <span class="n">get_output_logs_filenames</span><span class="p">(</span><span class="s1">'*\_server_messages.txt'</span><span class="p">)</span></code></pre></figure>
 
-<h2 id="command-and-telemetry-server">
-<a class="anchor" href="#command-and-telemetry-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command and Telemetry Server</h2>
+<h2 id="command-and-telemetry-server">Command and Telemetry Server</h2>
 
 <p>These methods allow the user to interact with Command and Telemetry Server.</p>
 
-<h3 id="get_server_status-since-410">
-<a class="anchor" href="#get_server_status-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_server_status (since 4.1.0)</h3>
+<h3 id="get_server_status-since-410">get_server_status (since 4.1.0)</h3>
 
 <p>The get_server_status method returns status information for the Command and Telemetry Server. The information includes the active limits set, API port number, JSON DRB number of clients, JSON DRB average request count, JSON DRB average request time, and number of server threads.</p>
 
@@ -4774,8 +4282,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">limits_set</span><span class="p">,</span> <span class="n">api_port</span><span class="p">,</span> <span class="n">json_drb_num_clients</span><span class="p">,</span> <span class="n">json_drb_req_count</span><span class="p">,</span> <span class="n">json_drb_avg_req_time</span><span class="p">,</span> <span class="n">num_threads</span> <span class="o">=</span> <span class="n">get_server_status</span><span class="p">()</span></code></pre></figure>
 
-<h3 id="cmd_tlm_reload-since-410">
-<a class="anchor" href="#cmd_tlm_reload-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd_tlm_reload (since 4.1.0)</h3>
+<h3 id="cmd_tlm_reload-since-410">cmd_tlm_reload (since 4.1.0)</h3>
 
 <p>The cmd_tlm_reload method reloads the default configuration in the Command and Telemetry Server.</p>
 
@@ -4783,8 +4290,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cmd_tlm_reload</span><span class="p">()</span></code></pre></figure>
 
-<h3 id="cmd_tlm_clear_counters-since-410">
-<a class="anchor" href="#cmd_tlm_clear_counters-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmd_tlm_clear_counters (since 4.1.0)</h3>
+<h3 id="cmd_tlm_clear_counters-since-410">cmd_tlm_clear_counters (since 4.1.0)</h3>
 
 <p>The cmd_tlm_clear_counters method resets the counters in the Command and Telemetry Server back to zero.</p>
 
@@ -4792,8 +4298,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cmd_tlm_clear_counters</span><span class="p">()</span></code></pre></figure>
 
-<h3 id="subscribe_server_messages-since-410">
-<a class="anchor" href="#subscribe_server_messages-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>subscribe_server_messages (since 4.1.0)</h3>
+<h3 id="subscribe_server_messages-since-410">subscribe_server_messages (since 4.1.0)</h3>
 
 <p>The subscribe_server_messages method allows the user to listen for server messages. A unique id is returned to the tool which is used to retrieve the messages. The messages are placed into a queue where they can then be processed one at a time.</p>
 
@@ -4820,8 +4325,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">id</span> <span class="o">=</span> <span class="n">subscribe_server_messages</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="unsubscribe_server_messages-since-410">
-<a class="anchor" href="#unsubscribe_server_messages-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>unsubscribe_server_messages (since 4.1.0)</h3>
+<h3 id="unsubscribe_server_messages-since-410">unsubscribe_server_messages (since 4.1.0)</h3>
 
 <p>The unsubscribe_server_messages method allows the user to stop listening for server messages. This should be called to reduce the server’s load if the subscription is no longer needed.</p>
 
@@ -4848,8 +4352,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">unsubscribe_server_messages</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="get_server_message-since-410">
-<a class="anchor" href="#get_server_message-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_server_message (since 4.1.0)</h3>
+<h3 id="get_server_message-since-410">get_server_message (since 4.1.0)</h3>
 
 <p>Receives a subscribed server message. If this method is called non-blocking <non_block> = true, this method will raise an error if the queue is empty. The return value is an array where the first element is the message and the second element is the color associated with the message (BLACK, RED, YELLOW, GREEN).</non_block></p>
 
@@ -4885,8 +4388,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">msg</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">get_server_message</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="get_background_tasks-since-410">
-<a class="anchor" href="#get_background_tasks-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_background_tasks (since 4.1.0)</h3>
+<h3 id="get_background_tasks-since-410">get_background_tasks (since 4.1.0)</h3>
 
 <p>The get_background_tasks method returns information about all background tasks. The return value is an array of arrays where each subarray contains the name, state, and status string for a background task.</p>
 
@@ -4897,8 +4399,7 @@ Example:
 <span class="nb">puts</span> <span class="s2">"Background task: </span><span class="si">#{</span><span class="n">background_task_name</span><span class="si">}</span><span class="s2">, state: </span><span class="si">#{</span><span class="n">state</span><span class="si">}</span><span class="s2">, status: </span><span class="si">#{</span><span class="n">status_string</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span></code></pre></figure>
 
-<h3 id="start_background_task-since-410">
-<a class="anchor" href="#start_background_task-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>start_background_task (since 4.1.0)</h3>
+<h3 id="start_background_task-since-410">start_background_task (since 4.1.0)</h3>
 
 <p>The start_background_task method starts a background task.</p>
 
@@ -4925,8 +4426,7 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">start_background_task</span><span class="p">(</span><span class="s2">"Example Background Task"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="stop_background_task-since-410">
-<a class="anchor" href="#stop_background_task-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>stop_background_task (since 4.1.0)</h3>
+<h3 id="stop_background_task-since-410">stop_background_task (since 4.1.0)</h3>
 
 <p>The stop_background_task method stops a background task.</p>
 
@@ -4953,13 +4453,11 @@ Example:
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">stop_background_task</span><span class="p">(</span><span class="s2">"Example Background Task"</span><span class="p">)</span></code></pre></figure>
 
-<h2 id="executing-other-procedures">
-<a class="anchor" href="#executing-other-procedures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Executing Other Procedures</h2>
+<h2 id="executing-other-procedures">Executing Other Procedures</h2>
 
 <p>These methods allow the user to bring in files of subroutines and execute other test procedures.</p>
 
-<h3 id="start">
-<a class="anchor" href="#start" aria-hidden="true"><span class="octicon octicon-link"></span></a>start</h3>
+<h3 id="start">start</h3>
 
 <p>The start method starts execution of another high level test procedure. No parameters can be given to high level test procedures. If parameters are necessary, then consider using a subroutine.</p>
 
@@ -4988,8 +4486,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">start</span><span class="p">(</span><span class="s2">"test1.rb"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="load_utility">
-<a class="anchor" href="#load_utility" aria-hidden="true"><span class="octicon octicon-link"></span></a>load_utility</h3>
+<h3 id="load_utility">load_utility</h3>
 
 <p>The load_utility method reads in a script file that contains useful subroutines for use in your test procedure. When these subroutines run in ScriptRunner or TestRunner, their lines will be highlighted. If you want to import subroutines but do not want their lines to be highlighted in ScriptRunner or TestRunner, use the standard Ruby ‘load’ or ‘require’ statement.</p>
 
@@ -5018,8 +4515,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load_utility</span><span class="p">(</span><span class="s2">"mode_changes.rb"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="opening-closing--creating-telemetry-screens">
-<a class="anchor" href="#opening-closing--creating-telemetry-screens" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opening, Closing &amp; Creating Telemetry Screens</h2>
+<h2 id="opening-closing--creating-telemetry-screens">Opening, Closing &amp; Creating Telemetry Screens</h2>
 
 <div class="note unreleased">
   <p>Screen APIs not yet implemented in COSMOS 5</p>
@@ -5027,8 +4523,7 @@ Example:
 
 <p>These methods allow the user to open, close or create unique telemetry screens from within a test procedure.</p>
 
-<h3 id="display">
-<a class="anchor" href="#display" aria-hidden="true"><span class="octicon octicon-link"></span></a>display</h3>
+<h3 id="display">display</h3>
 
 <p>The display method opens a telemetry screen at the specified position.</p>
 
@@ -5065,8 +4560,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">display</span><span class="p">(</span><span class="s2">"INST ADCS"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="clear">
-<a class="anchor" href="#clear" aria-hidden="true"><span class="octicon octicon-link"></span></a>clear</h3>
+<h3 id="clear">clear</h3>
 
 <p>The clear method closes an open telemetry screen.</p>
 
@@ -5095,8 +4589,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">clear</span><span class="p">(</span><span class="s2">"INST ADCS"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="clear_all-since-392">
-<a class="anchor" href="#clear_all-since-392" aria-hidden="true"><span class="octicon octicon-link"></span></a>clear_all (since 3.9.2)</h3>
+<h3 id="clear_all-since-392">clear_all (since 3.9.2)</h3>
 
 <p>The clear_all method closes all open screens or all screens of a particular target.</p>
 
@@ -5126,8 +4619,7 @@ Example:
 <span class="n">clear_all</span><span class="p">()</span> <span class="c1"># Clear all screens</span>
 </code></pre></div></div>
 
-<h3 id="get_screen_list-since-410">
-<a class="anchor" href="#get_screen_list-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_screen_list (since 4.1.0)</h3>
+<h3 id="get_screen_list-since-410">get_screen_list (since 4.1.0)</h3>
 
 <p>The get_screen_list returns a list of available telemetry screens.</p>
 
@@ -5160,8 +4652,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">screen_list</span> <span class="o">=</span> <span class="n">get_screen_list</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="get_screen_definition-since-410">
-<a class="anchor" href="#get_screen_definition-since-410" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_screen_definition (since 4.1.0)</h3>
+<h3 id="get_screen_definition-since-410">get_screen_definition (since 4.1.0)</h3>
 
 <p>The get_screen_definition returns the text file contents of a telemetry screen definition.</p>
 
@@ -5198,8 +4689,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">screen_definition</span> <span class="o">=</span> <span class="n">get_screen_definition</span><span class="p">(</span><span class="s2">"INST HS"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="local_screen-since-430">
-<a class="anchor" href="#local_screen-since-430" aria-hidden="true"><span class="octicon octicon-link"></span></a>local_screen (since 4.3.0)</h3>
+<h3 id="local_screen-since-430">local_screen (since 4.3.0)</h3>
 
 <p>The local_screen allows you to create a temporary screen directly from a script. This also has the ability to use local variables from within your script in your screen.</p>
 
@@ -5277,8 +4767,7 @@ Example:
 <span class="n">close_local_screens</span><span class="p">()</span> <span class="c1"># Close all open local screens</span>
 </code></pre></div></div>
 
-<h3 id="close_local_screens-since-430">
-<a class="anchor" href="#close_local_screens-since-430" aria-hidden="true"><span class="octicon octicon-link"></span></a>close_local_screens (since 4.3.0)</h3>
+<h3 id="close_local_screens-since-430">close_local_screens (since 4.3.0)</h3>
 
 <p>The close_local_screens closes all temporary screens which were opened using local_screen.</p>
 
@@ -5287,13 +4776,11 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">close_local_screens</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h2 id="script-runner-specific-functionality">
-<a class="anchor" href="#script-runner-specific-functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Script Runner Specific Functionality</h2>
+<h2 id="script-runner-specific-functionality">Script Runner Specific Functionality</h2>
 
 <p>These methods allow the user to interact with ScriptRunner functions.</p>
 
-<h3 id="set_line_delay">
-<a class="anchor" href="#set_line_delay" aria-hidden="true"><span class="octicon octicon-link"></span></a>set_line_delay</h3>
+<h3 id="set_line_delay">set_line_delay</h3>
 
 <p>This method sets the line delay in script runner.</p>
 
@@ -5322,8 +4809,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_line_delay</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_line_delay">
-<a class="anchor" href="#get_line_delay" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_line_delay</h3>
+<h3 id="get_line_delay">get_line_delay</h3>
 
 <p>The method gets the line delay that script runner is currently using.</p>
 
@@ -5332,8 +4818,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">curr_line_delay</span> <span class="o">=</span> <span class="n">get_line_delay</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="get_scriptrunner_message_log_filename">
-<a class="anchor" href="#get_scriptrunner_message_log_filename" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_scriptrunner_message_log_filename</h3>
+<h3 id="get_scriptrunner_message_log_filename">get_scriptrunner_message_log_filename</h3>
 
 <p>Returns the filename of the ScriptRunner message log.</p>
 
@@ -5342,8 +4827,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filename</span> <span class="o">=</span> <span class="n">get_scriptrunner_message_log_filename</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="start_new_scriptrunner_message_log">
-<a class="anchor" href="#start_new_scriptrunner_message_log" aria-hidden="true"><span class="octicon octicon-link"></span></a>start_new_scriptrunner_message_log</h3>
+<h3 id="start_new_scriptrunner_message_log">start_new_scriptrunner_message_log</h3>
 
 <p>Starts a new ScriptRunner message log. Note: ScriptRunner will automatically start a new log whenever a script is started. This method is only needed for starting a new log mid-script execution.</p>
 
@@ -5352,8 +4836,7 @@ Example:
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filename</span> <span class="o">=</span> <span class="n">start_new_scriptrunner_message_log</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="disable_instrumentation">
-<a class="anchor" href="#disable_instrumentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>disable_instrumentation</h3>
+<h3 id="disable_instrumentation">disable_instrumentation</h3>
 
 <p><strong>_ Added in COSMOS 3.3.3 _</strong></p>
 
@@ -5371,8 +4854,7 @@ Consider breaking code like this into a seperate file and using either require/l
 <span class="k">end</span>
 </code></pre></div></div>
 
-<h3 id="set_stdout_max_lines">
-<a class="anchor" href="#set_stdout_max_lines" aria-hidden="true"><span class="octicon octicon-link"></span></a>set_stdout_max_lines</h3>
+<h3 id="set_stdout_max_lines">set_stdout_max_lines</h3>
 
 <p><strong>_ Added in COSMOS 3.3.3 _</strong></p>
 
@@ -5403,13 +4885,11 @@ Consider breaking code like this into a seperate file and using either require/l
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_stdout_max_lines</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="debugging">
-<a class="anchor" href="#debugging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debugging</h2>
+<h2 id="debugging">Debugging</h2>
 
 <p>These methods allow the user to debug scripts with ScriptRunner.</p>
 
-<h3 id="insert_return">
-<a class="anchor" href="#insert_return" aria-hidden="true"><span class="octicon octicon-link"></span></a>insert_return</h3>
+<h3 id="insert_return">insert_return</h3>
 
 <p>Inserts a ruby return statement into the currently executing context. This can be used to break out of methods early from the ScriptRunner Debug prompt.</p>
 
@@ -5439,8 +4919,7 @@ Consider breaking code like this into a seperate file and using either require/l
 <span class="n">insert_return</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="step_mode">
-<a class="anchor" href="#step_mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>step_mode</h3>
+<h3 id="step_mode">step_mode</h3>
 
 <p>Places ScriptRunner into step mode where Go must be hit to proceed to the next line.</p>
 
@@ -5449,8 +4928,7 @@ Consider breaking code like this into a seperate file and using either require/l
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">step_mode</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="run_mode">
-<a class="anchor" href="#run_mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>run_mode</h3>
+<h3 id="run_mode">run_mode</h3>
 
 <p>Places ScriptRunner into run mode where the next line is run automatically.</p>
 
@@ -5459,8 +4937,7 @@ Consider breaking code like this into a seperate file and using either require/l
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">run_mode</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="show_backtrace">
-<a class="anchor" href="#show_backtrace" aria-hidden="true"><span class="octicon octicon-link"></span></a>show_backtrace</h3>
+<h3 id="show_backtrace">show_backtrace</h3>
 
 <p>Makes ScriptRunner print out a backtrace when an error occurs. Also prints out a backtrace for the most recent error.</p>
 
@@ -5471,8 +4948,7 @@ Consider breaking code like this into a seperate file and using either require/l
 <span class="n">show_backtrace</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span> <span class="c1"># Disables showing backtrace for every error</span>
 </code></pre></div></div>
 
-<h3 id="shutdown_cmd_tlm">
-<a class="anchor" href="#shutdown_cmd_tlm" aria-hidden="true"><span class="octicon octicon-link"></span></a>shutdown_cmd_tlm</h3>
+<h3 id="shutdown_cmd_tlm">shutdown_cmd_tlm</h3>
 
 <p>The shutdown_cmd_tlm method disconnects from the Command and Telemetry Server. This is good practice to do before your tool shuts down.</p>
 
@@ -5481,8 +4957,7 @@ Consider breaking code like this into a seperate file and using either require/l
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shutdown_cmd_tlm</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h3 id="set_cmd_tlm_disconnect">
-<a class="anchor" href="#set_cmd_tlm_disconnect" aria-hidden="true"><span class="octicon octicon-link"></span></a>set_cmd_tlm_disconnect</h3>
+<h3 id="set_cmd_tlm_disconnect">set_cmd_tlm_disconnect</h3>
 
 <p>The set_cmd_tlm_disconnect method puts scripting into or out of disconnect mode. In disconnect mode, messages are not sent to CmdTlmServer. Instead things are reported as nominally succeeding. Disconnect mode is useful for dry-running scripts without having a connected CmdTlmServer.</p>
 
@@ -5515,8 +4990,7 @@ Consider breaking code like this into a seperate file and using either require/l
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_cmd_tlm_disconnect</span><span class="p">(</span><span class="kp">true</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="get_cmd_tlm_disconnect">
-<a class="anchor" href="#get_cmd_tlm_disconnect" aria-hidden="true"><span class="octicon octicon-link"></span></a>get_cmd_tlm_disconnect</h3>
+<h3 id="get_cmd_tlm_disconnect">get_cmd_tlm_disconnect</h3>
 
 <p>The get_cmd_tlm_disconnect method returns true if currently in disconnect mode.</p>
 
@@ -5524,1134 +4998,4 @@ Consider breaking code like this into a seperate file and using either require/l
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mode</span> <span class="o">=</span> <span class="n">get_cmd_tlm_disconnect</span><span class="p">()</span>
 </code></pre></div></div>
-
-      </article>
-    </div>
-
-    <div class="unit one-fifth hide-on-mobiles">
-  <aside>
-    <ul>
-      
-      <!-- Ignore "posts" and "docs", we only want versioned collections -->
-      <!-- prettier-ignore -->
-       
-      <!-- Ignore "posts" and "docs", we only want versioned collections -->
-      <!-- prettier-ignore -->
-      
-      
-      <li>
-        <!-- Only create links to collections which aren't our own  -->
-        
-        <a href="/docs/v4/"
-          >v4 Docs</a
-        >
-          
-      <!-- Ignore "posts" and "docs", we only want versioned collections -->
-      <!-- prettier-ignore -->
-      
-      
-      <li>
-        <!-- Only create links to collections which aren't our own  -->
-          
-      <!-- Ignore "posts" and "docs", we only want versioned collections -->
-      <!-- prettier-ignore -->
-       
-      </li>
-    </ul>
-
-    <!-- prettier-ignore -->
-    
-    
-    
-    <h4>Getting Started</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/tools">Tools</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/installation">Installation</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/upgrading">Upgrading</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/gettingstarted">Getting Started</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-    <h4>Configuration</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/target">Target Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/command">Command Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/telemetry">Telemetry Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/interfaces">Interface Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/protocols">Protocol Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-    <h4>Tool User Manuals</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-  <li class="">
-    <a href="/docs/v5/cmd-sender">Command Sender</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/cmd-tlm-server">Command and Telemetry Server</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/data-extractor">Data Extractor</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/limits-monitor">Limits Monitor</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/packet-viewer">Packet Viewer</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/script-runner">Script Runner</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/tlm-grapher">Telemetry Grapher</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/tlm-viewer">Telemetry Viewer</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/screens">Telemetry Screens</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-    <h4>Usage Guides</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="current">
-    <a href="/docs/v5/scripting">Scripting Guide</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/scripting-best-practices">Scripting Best Practices</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-    <h4>Development</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/json-api">JSON API</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/logging">Logging</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-
-    <!-- Every versioned site gets the unversioned Meta section -->
-    <h4>Meta</h4>
-    <ul>
-      
-      <li>
-        <a href="/docs/contributing">Contributing</a>
-      </li>
-      
-      <li>
-        <a href="/docs/papers">Papers</a>
-      </li>
-      
-      <li>
-        <a href="/docs/requirements">Requirements and Design</a>
-      </li>
-      
-      <li>
-        <a href="/docs/xtce">XTCE Support</a>
-      </li>
-      
-    </ul>
-  </aside>
-</div>
-
-
-    <div class="clear"></div>
-  </div>
-</section>
-
-
-  <script>
-  (function() {
-    var cx = '001663949569052626382:-enhin1layy';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<footer role="contentinfo">
-  <div class="grid wider">
-    <div class="unit one-third center-on-mobiles">
-      <p>The contents of this website are &copy;&nbsp;2020 <a href="http://www.ballaerospace.com/" target="_blank">Ball Aerospace</a> under the terms of the <a href="https://github.com/BallAerospace/COSMOS/blob/master/LICENSE.txt" target="_blank">GPLv3&nbsp;License</a>.</p>
-      <p>Site design derived from the <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> project documentation which is licensed under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE" target="_blank">MIT License</a>.</p>
-    </div>
-    <div class="unit two-thirds align-right center-on-mobiles">
-      <p>
-        <gcse:search></gcse:search>
-        Proudly hosted by
-        <a href="https://github.com" target="_blank">
-          <img src="/img/footer-logo.png" width="100" height="30" alt="GitHub Social coding">
-        </a>
-      </p>
-    </div>
-  </div>
-</footer>
-
-  <script>
-  var anchorForId = function (id) {
-    var anchor = document.createElement("a");
-    anchor.className = "header-link";
-    anchor.href      = "#" + id;
-    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
-    anchor.title = "Permalink";
-    return anchor;
-  };
-
-  var linkifyAnchors = function (level, containingElement) {
-    var headers = containingElement.getElementsByTagName("h" + level);
-    for (var h = 0; h < headers.length; h++) {
-      var header = headers[h];
-
-      if (typeof header.id !== "undefined" && header.id !== "") {
-        header.appendChild(anchorForId(header.id));
-      }
-    }
-  };
-
-  document.onreadystatechange = function () {
-    if (this.readyState === "complete") {
-      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
-      if (!contentBlock) {
-        return;
-      }
-      for (var level = 1; level <= 6; level++) {
-        linkifyAnchors(level, contentBlock);
-      }
-    }
-  };
-</script>
-
-  
-  <!-- Google Analytics (http://google.com/analytics) -->
-  <script>
-    !function(j,e,k,y,l,L){j.GoogleAnalyticsObject=y,j[y]||(j[y]=function(){
-    (j[y].q=j[y].q||[]).push(arguments)}),j[y].l=+new Date,l=e.createElement(k),
-    L=e.getElementsByTagName(k)[0],l.src='//www.google-analytics.com/analytics.js',
-    L.parentNode.insertBefore(l,L)}(window,document,'script','ga');
-
-    ga('create', 'UA-60103689-1', 'cosmosrb.com');
-    ga('send', 'pageview');
-
-  </script>
-
-
-
-</body>
-</html>
+:ET

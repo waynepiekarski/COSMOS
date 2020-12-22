@@ -1,224 +1,8 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-  <meta charset="UTF-8">
-  <title>Telemetry Screens</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v4.1.1">
-  <link rel="alternate" type="application/rss+xml" title="Ball Aerospace COSMOS News" href="/feed.xml">
-  <link rel="alternate" type="application/atom+xml" title="Recent commits to COSMOS's master branch" href="https://github.com/BallAerospace/COSMOS/commits/master.atom">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
-  <link rel="stylesheet" href="/css/screen.css">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!--[if lt IE 9]>
-  <script src="/js/html5shiv.min.js"></script>
-  <script src="/js/respond.min.js"></script>
-  <![endif]-->
-</head>
-
-
-<body class="wrap">
-  <header role="banner">
-  <nav class="mobile-nav show-on-mobiles">
-    <ul>
-  <li class="">
-    <a href="/">Home</a>
-  </li>
-  <li class="current">
-    <span class="hide-on-mobiles"><a href="/docs/v4/">Documentation</a></span>
-    <span class="show-on-mobiles"><a href="/docs/v4/">Docs</a></span>
-  </li>
-  <li class="">
-    <a href="/news/">News</a>
-  </li>
-  <li>
-    <a href="/help/">Help</a>
-  </li>
-  <li>
-    <a href="https://github.com/BallAerospace/COSMOS" target="_blank"
-      ><span class="hide-on-mobiles">View on </span>GitHub</a
-    >
-  </li>
-</ul>
-
-  </nav>
-  <div class="grid wider">
-    <div class="unit one-third center-on-mobiles" style="margin-top:27px;">
-      <h1>
-        <a href="/">
-          <span class="sr-only">COSMOS</span>
-          <img src="/img/COSMOS.png" width="312" height="70" alt="COSMOS Logo">
-        </a>
-      </h1>
-    </div>
-    <nav class="main-nav unit two-thirds hide-on-mobiles">
-      <ul>
-  <li class="">
-    <a href="/">Home</a>
-  </li>
-  <li class="current">
-    <span class="hide-on-mobiles"><a href="/docs/v4/">Documentation</a></span>
-    <span class="show-on-mobiles"><a href="/docs/v4/">Docs</a></span>
-  </li>
-  <li class="">
-    <a href="/news/">News</a>
-  </li>
-  <li>
-    <a href="/help/">Help</a>
-  </li>
-  <li>
-    <a href="https://github.com/BallAerospace/COSMOS" target="_blank"
-      ><span class="hide-on-mobiles">View on </span>GitHub</a
-    >
-  </li>
-</ul>
-
-    </nav>
-  </div>
-</header>
-
-
-  <section class="docs">
-  <div class="grid wider">
-    <div class="unit four-fifths">
-      <article>
-        <!-- Get version but ignore the "docs" collection -->
-        <!-- prettier-ignore -->
-        
-        
-        <div class="improve right">
-          <span class="version-badge">v5</span>
-        </div>
-         
-        <div class="toc"><ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#definitions">Definitions</a></li>
-<li class="toc-entry toc-h2"><a href="#telemetry-screen-definition-files">Telemetry Screen Definition Files</a></li>
-<li class="toc-entry toc-h2"><a href="#keywords">Keywords:</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#screen">SCREEN</a></li>
-<li class="toc-entry toc-h3"><a href="#end">END</a></li>
-<li class="toc-entry toc-h3"><a href="#global_setting">GLOBAL_SETTING</a></li>
-<li class="toc-entry toc-h3"><a href="#global_subsetting">GLOBAL_SUBSETTING</a></li>
-<li class="toc-entry toc-h3"><a href="#setting">SETTING</a></li>
-<li class="toc-entry toc-h3"><a href="#subsetting">SUBSETTING</a></li>
-<li class="toc-entry toc-h3"><a href="#named_widget">NAMED_WIDGET</a></li>
-<li class="toc-entry toc-h3"><a href="#widgetname">WIDGETNAME</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#example-file">Example File</a></li>
-<li class="toc-entry toc-h2"><a href="#widget-descriptions">Widget Descriptions</a></li>
-<li class="toc-entry toc-h2"><a href="#layout-widgets">Layout Widgets</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#vertical">VERTICAL</a></li>
-<li class="toc-entry toc-h3"><a href="#verticalbox">VERTICALBOX</a></li>
-<li class="toc-entry toc-h3"><a href="#horizontal">HORIZONTAL</a></li>
-<li class="toc-entry toc-h3"><a href="#horizontalbox">HORIZONTALBOX</a></li>
-<li class="toc-entry toc-h3"><a href="#matrixbycolumns">MATRIXBYCOLUMNS</a></li>
-<li class="toc-entry toc-h3"><a href="#scrollwindow">SCROLLWINDOW</a></li>
-<li class="toc-entry toc-h3"><a href="#tabbook">TABBOOK</a></li>
-<li class="toc-entry toc-h3"><a href="#tabitem">TABITEM</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#decoration-widgets">Decoration Widgets</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#label">LABEL</a></li>
-<li class="toc-entry toc-h3"><a href="#horizontalline">HORIZONTALLINE</a></li>
-<li class="toc-entry toc-h3"><a href="#sectionheader">SECTIONHEADER</a></li>
-<li class="toc-entry toc-h3"><a href="#title">TITLE</a></li>
-<li class="toc-entry toc-h3"><a href="#spacer">SPACER</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#telemetry-widgets">Telemetry widgets</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#array">ARRAY</a></li>
-<li class="toc-entry toc-h3"><a href="#block">BLOCK</a></li>
-<li class="toc-entry toc-h3"><a href="#formatfontvalue">FORMATFONTVALUE</a></li>
-<li class="toc-entry toc-h3"><a href="#formatvalue">FORMATVALUE</a></li>
-<li class="toc-entry toc-h3"><a href="#labelformatvalue">LABELFORMATVALUE</a></li>
-<li class="toc-entry toc-h3"><a href="#labelprogressbar">LABELPROGRESSBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#labeltrendlimitsbar">LABELTRENDLIMITSBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#labelvalue">LABELVALUE</a></li>
-<li class="toc-entry toc-h3"><a href="#labelvaluedesc">LABELVALUEDESC</a></li>
-<li class="toc-entry toc-h3"><a href="#labelvaluelimitsbar">LABELVALUELIMITSBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#labelvaluelimitscolumn">LABELVALUELIMITSCOLUMN</a></li>
-<li class="toc-entry toc-h3"><a href="#labelvaluerangebar">LABELVALUERANGEBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#labelvaluerangecolumn">LABELVALUERANGECOLUMN</a></li>
-<li class="toc-entry toc-h3"><a href="#limitsbar">LIMITSBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#limitscolumn">LIMITSCOLUMN</a></li>
-<li class="toc-entry toc-h3"><a href="#limitscolor">LIMITSCOLOR</a></li>
-<li class="toc-entry toc-h3"><a href="#valuelimitsbar">VALUELIMITSBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#valuelimitscolumn">VALUELIMITSCOLUMN</a></li>
-<li class="toc-entry toc-h3"><a href="#valuerangebar">VALUERANGEBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#valuerangecolumn">VALUERANGECOLUMN</a></li>
-<li class="toc-entry toc-h3"><a href="#linegraph">LINEGRAPH</a></li>
-<li class="toc-entry toc-h3"><a href="#progressbar">PROGRESSBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#rangebar">RANGEBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#rangecolumn">RANGECOLUMN</a></li>
-<li class="toc-entry toc-h3"><a href="#textbox">TEXTBOX</a></li>
-<li class="toc-entry toc-h3"><a href="#timegraph">TIMEGRAPH</a></li>
-<li class="toc-entry toc-h3"><a href="#trendbar">TRENDBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#trendlimitsbar">TRENDLIMITSBAR</a></li>
-<li class="toc-entry toc-h3"><a href="#value">VALUE</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#interactive-widgets">Interactive Widgets</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#button">BUTTON</a></li>
-<li class="toc-entry toc-h3"><a href="#checkbutton">CHECKBUTTON</a></li>
-<li class="toc-entry toc-h3"><a href="#combobox">COMBOBOX</a></li>
-<li class="toc-entry toc-h3"><a href="#radiobutton">RADIOBUTTON</a></li>
-<li class="toc-entry toc-h3"><a href="#textfield">TEXTFIELD</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#canvas-widgets">Canvas Widgets</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#canvas">CANVAS</a></li>
-<li class="toc-entry toc-h3"><a href="#canvaslabel">CANVASLABEL</a></li>
-<li class="toc-entry toc-h3"><a href="#canvaslabelvalue">CANVASLABELVALUE</a></li>
-<li class="toc-entry toc-h3"><a href="#canvasimage">CANVASIMAGE</a></li>
-<li class="toc-entry toc-h3"><a href="#canvasimagevalue">CANVASIMAGEVALUE</a></li>
-<li class="toc-entry toc-h3"><a href="#canvasline">CANVASLINE</a></li>
-<li class="toc-entry toc-h3"><a href="#canvaslinevalue">CANVASLINEVALUE</a></li>
-<li class="toc-entry toc-h3"><a href="#canvasdot">CANVASDOT</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#widget-settings">Widget Settings</a></li>
-<li class="toc-entry toc-h2"><a href="#common-settings">Common Settings</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#backcolor">BACKCOLOR</a></li>
-<li class="toc-entry toc-h3"><a href="#textcolor">TEXTCOLOR</a></li>
-<li class="toc-entry toc-h3"><a href="#width">WIDTH</a></li>
-<li class="toc-entry toc-h3"><a href="#height">HEIGHT</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#widget-specific-settings">Widget-Specific Settings</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#bordercolor">BORDERCOLOR</a></li>
-<li class="toc-entry toc-h3"><a href="#colorblind">COLORBLIND</a></li>
-<li class="toc-entry toc-h3"><a href="#enable_aging">ENABLE_AGING</a></li>
-<li class="toc-entry toc-h3"><a href="#gray_rate--grey_rate">GRAY_RATE / GREY_RATE</a></li>
-<li class="toc-entry toc-h3"><a href="#gray_tolerance--grey_tolerance">GRAY_TOLERANCE / GREY_TOLERANCE</a></li>
-<li class="toc-entry toc-h3"><a href="#min_gray--min_grey">MIN_GRAY / MIN_GREY</a></li>
-<li class="toc-entry toc-h3"><a href="#trend_seconds">TREND_SECONDS</a></li>
-<li class="toc-entry toc-h3"><a href="#value_eq">VALUE_EQ</a></li>
-<li class="toc-entry toc-h3"><a href="#value_gt">VALUE_GT</a></li>
-<li class="toc-entry toc-h3"><a href="#value_gteq">VALUE_GTEQ</a></li>
-<li class="toc-entry toc-h3"><a href="#value_lt">VALUE_LT</a></li>
-<li class="toc-entry toc-h3"><a href="#value_lteq">VALUE_LTEQ</a></li>
-<li class="toc-entry toc-h3"><a href="#tlm_and">TLM_AND</a></li>
-<li class="toc-entry toc-h3"><a href="#tlm_or">TLM_OR</a></li>
-</ul>
-</li>
-</ul></div>
-        
-        <h1>Telemetry Screens</h1>
-        <p>This document provides the information necessary to generate and use COSMOS Telemetry Screens, which are displayed by the COSMOS Telemetry Viewer application.</p>
+I"��<p>This document provides the information necessary to generate and use COSMOS Telemetry Screens, which are displayed by the COSMOS Telemetry Viewer application.</p>
 
 <div style="clear:both;"></div>
 
-<h2 id="definitions">
-<a class="anchor" href="#definitions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Definitions</h2>
+<h2 id="definitions">Definitions</h2>
 
 <table>
   <thead>
@@ -243,16 +27,13 @@
   </tbody>
 </table>
 
-<h2 id="telemetry-screen-definition-files">
-<a class="anchor" href="#telemetry-screen-definition-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Telemetry Screen Definition Files</h2>
+<h2 id="telemetry-screen-definition-files">Telemetry Screen Definition Files</h2>
 
 <p>Telemetry screen definition files define the the contents of telemetry screens. They take the general form of a SCREEN keyword followed by a series of widget keywords that define the telemetry screen. Screen definition files specific to a particular target go in that target’s screens directory. For example: COSMOS/screens/version.txt. Screen definition files that combine telemetry from multiple targets typically go in the SYSTEM target’s screens folder. For example: SYSTEM/screens/overall.txt.</p>
 
-<h2 id="keywords">
-<a class="anchor" href="#keywords" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keywords:</h2>
+<h2 id="keywords">Keywords:</h2>
 
-<h3 id="screen">
-<a class="anchor" href="#screen" aria-hidden="true"><span class="octicon octicon-link"></span></a>SCREEN</h3>
+<h3 id="screen">SCREEN</h3>
 
 <p>The SCREEN keyword is the first keyword in any telemetry screen definition. It defines the name of the screen and parameters that affect the screen overall.</p>
 
@@ -294,13 +75,11 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">SCREEN AUTO AUTO 1.0 FIXED</code></pre></figure>
 
-<h3 id="end">
-<a class="anchor" href="#end" aria-hidden="true"><span class="octicon octicon-link"></span></a>END</h3>
+<h3 id="end">END</h3>
 
 <p>The END keyword is used to indicate the close of a layout widget. For example a VERTICALBOX keyword must be matched with an END keyword to indicate where the VERTICALBOX ends.</p>
 
-<h3 id="global_setting">
-<a class="anchor" href="#global_setting" aria-hidden="true"><span class="octicon octicon-link"></span></a>GLOBAL_SETTING</h3>
+<h3 id="global_setting">GLOBAL_SETTING</h3>
 
 <p>The GLOBAL_SETTING keyword is used to apply a widget setting to allow widgets of a certain type. (See SETTING)</p>
 
@@ -337,8 +116,7 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">GLOBAL_SETTING LABELVALUELIMITSBAR COLORBLIND TRUE</code></pre></figure>
 
-<h3 id="global_subsetting">
-<a class="anchor" href="#global_subsetting" aria-hidden="true"><span class="octicon octicon-link"></span></a>GLOBAL_SUBSETTING</h3>
+<h3 id="global_subsetting">GLOBAL_SUBSETTING</h3>
 
 <p>The GLOBAL_SUBSETTING keyword is used to apply a widget subsetting to allow widgets of a certain type. (See SUBSETTING)</p>
 
@@ -381,8 +159,7 @@
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">GLOBAL_SUBSETTING LABELVALUELIMITSBAR 1 COLORBLIND TRUE
 GLOBAL_SUBSETTING LABELVALUELIMITSBAR 0:0 TEXTCOLOR white <span class="c"># Set all text color to white for labelvaluelimitsbars</span></code></pre></figure>
 
-<h3 id="setting">
-<a class="anchor" href="#setting" aria-hidden="true"><span class="octicon octicon-link"></span></a>SETTING</h3>
+<h3 id="setting">SETTING</h3>
 
 <p>The SETTING keyword is used to apply a widget setting to the widget that was specified immediately before it.</p>
 
@@ -417,8 +194,7 @@ GLOBAL_SUBSETTING LABELVALUELIMITSBAR 0:0 TEXTCOLOR white <span class="c"># Set 
 END
 SETTING BACKCOLOR 163 185 163 <span class="c"># RGB color for the box background</span></code></pre></figure>
 
-<h3 id="subsetting">
-<a class="anchor" href="#subsetting" aria-hidden="true"><span class="octicon octicon-link"></span></a>SUBSETTING</h3>
+<h3 id="subsetting">SUBSETTING</h3>
 
 <p>The SUBSETTING keyword is used to apply a widget subsetting to the widget that was specified immediately before it. Subsettings are only valid for widgets that are made up of more than one subwidget. For example, LABELVALUE is made up of a LABEL at subwidget index 0 and a VALUE at subwidget index 1. This allows for passing settings to specific subwidgets. Some widgets are made up of multiple subwidgets, e.g. LABELVALUELIMITSBAR. To set the label text color, pass ‘0:0’ as the Subwidget Index to first index the LABELVALUE and then to the LABEL.</p>
 
@@ -460,8 +236,7 @@ SETTING BACKCOLOR 163 185 163 <span class="c"># RGB color for the box background
   SUBSETTING 0:0 TEXTCOLOR white <span class="c"># Change the label's text color to white</span>
 END</code></pre></figure>
 
-<h3 id="named_widget">
-<a class="anchor" href="#named_widget" aria-hidden="true"><span class="octicon octicon-link"></span></a>NAMED_WIDGET</h3>
+<h3 id="named_widget">NAMED_WIDGET</h3>
 
 <p>The NAMED_WIDGET keyword is used to give a name to a widget that allows it to be accessed from other widgets using the get_named_widget method of screen. Note that get_named_widget returns the widget itself and thus must be operated on using methods native to that widget.</p>
 
@@ -499,8 +274,7 @@ END</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">NAMED_WIDGET DURATION TEXTFIELD
 BUTTON <span class="s2">"Push"</span> <span class="s2">"screen.get_named_widget('DURATION').text()"</span></code></pre></figure>
 
-<h3 id="widgetname">
-<a class="anchor" href="#widgetname" aria-hidden="true"><span class="octicon octicon-link"></span></a>WIDGETNAME</h3>
+<h3 id="widgetname">WIDGETNAME</h3>
 
 <p>All other keywords in a telemetry screen definition define the name of a widget and its unique parameters. These aren’t really keywords at all and widgets can have any name besides the real keywords listed above. Whenever a keyword is encountered that is unrecognized, it is assumed that a file of the form widgetname_widget.rb exists, and contains a class called WidgetnameWidget. Because of this convention, new widgets can be added to the system without any change to the telemetry screen definition format Please see the Widget Descriptions section below for the details on all widgets supplied with the COSMOS core system.</p>
 
@@ -528,10 +302,9 @@ BUTTON <span class="s2">"Push"</span> <span class="s2">"screen.get_named_widget(
 
 <p>Example Usage: See the Example File</p>
 
-<h2 id="example-file">
-<a class="anchor" href="#example-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example File</h2>
+<h2 id="example-file">Example File</h2>
 
-<p>Example File: <target>/myscreen.txt</target></p>
+<p>Example File: <TARGET>/myscreen.txt</TARGET></p>
 
 <!-- prettier-ignore -->
 
@@ -566,18 +339,15 @@ VERTICAL
   SETTING BACKCOLOR 163 185 163
 END</code></pre></figure>
 
-<h2 id="widget-descriptions">
-<a class="anchor" href="#widget-descriptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Widget Descriptions</h2>
+<h2 id="widget-descriptions">Widget Descriptions</h2>
 
 <p>This section describes the usage of all the telemetry screen widgets that are provided by the core COSMOS system.</p>
 
-<h2 id="layout-widgets">
-<a class="anchor" href="#layout-widgets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layout Widgets</h2>
+<h2 id="layout-widgets">Layout Widgets</h2>
 
 <p>Layout widgets are used to position other widgets on the screen. For example, the HORIZONTAL layout widget places the widgets it encapsulates horizontally on the screen.</p>
 
-<h3 id="vertical">
-<a class="anchor" href="#vertical" aria-hidden="true"><span class="octicon octicon-link"></span></a>VERTICAL</h3>
+<h3 id="vertical">VERTICAL</h3>
 
 <p>The VERTICAL widget places the widgets it encapsulates vertically on the screen. The screen defaults to a vertical layout, so if no layout widgets are specified, all widgets will be automatically placed within a VERTICAL layout widget. The VERTICAL widget sizes itself to fit its contents.</p>
 
@@ -612,8 +382,7 @@ END</code></pre></figure>
   LABEL <span class="s2">"SCREEN"</span>
 END</code></pre></figure>
 
-<h3 id="verticalbox">
-<a class="anchor" href="#verticalbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>VERTICALBOX</h3>
+<h3 id="verticalbox">VERTICALBOX</h3>
 
 <p>The VERTICALBOX widget places the widgets it encapsulates vertically on the screen inside of a thin border. The VERTICALBOX widget sizes itself to fit its contents vertically and to fit the screen horizontally.</p>
 
@@ -653,8 +422,7 @@ END</code></pre></figure>
   LABEL <span class="s2">"SCREEN"</span>
 END</code></pre></figure>
 
-<h3 id="horizontal">
-<a class="anchor" href="#horizontal" aria-hidden="true"><span class="octicon octicon-link"></span></a>HORIZONTAL</h3>
+<h3 id="horizontal">HORIZONTAL</h3>
 
 <p>The HORIZONTAL widget places the widgets it encapsulates horizontally on the screen. The HORIZONTAL widget sizes itself to fit its contents.</p>
 
@@ -684,8 +452,7 @@ END</code></pre></figure>
   LABEL <span class="s2">"SCREEN"</span>
 END</code></pre></figure>
 
-<h3 id="horizontalbox">
-<a class="anchor" href="#horizontalbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>HORIZONTALBOX</h3>
+<h3 id="horizontalbox">HORIZONTALBOX</h3>
 
 <p>The HORIZONTALBOX widget places the widgets it encapsulates horizontally on the screen inside of a thin border. The HORIZONTALBOX widget sizes itself to fit its contents.</p>
 
@@ -720,8 +487,7 @@ END</code></pre></figure>
   LABEL <span class="s2">"SCREEN"</span>
 END</code></pre></figure>
 
-<h3 id="matrixbycolumns">
-<a class="anchor" href="#matrixbycolumns" aria-hidden="true"><span class="octicon octicon-link"></span></a>MATRIXBYCOLUMNS</h3>
+<h3 id="matrixbycolumns">MATRIXBYCOLUMNS</h3>
 
 <p>The MATRIXBYCOLUMNS widget places the widgets into a table-like matrix. The MATRIXBYCOLUMNS widget sizes itself to fit its contents.</p>
 
@@ -765,8 +531,7 @@ END</code></pre></figure>
   LABEL <span class="s2">"300"</span>
 END</code></pre></figure>
 
-<h3 id="scrollwindow">
-<a class="anchor" href="#scrollwindow" aria-hidden="true"><span class="octicon octicon-link"></span></a>SCROLLWINDOW</h3>
+<h3 id="scrollwindow">SCROLLWINDOW</h3>
 
 <p>The SCROLLWINDOW widget places the widgets inside of it into a scrollable area. The SCROLLWINDOW widget sizes itself to fit the screen in which it is contained.</p>
 
@@ -788,13 +553,11 @@ END</code></pre></figure>
   END
 END</code></pre></figure>
 
-<h3 id="tabbook">
-<a class="anchor" href="#tabbook" aria-hidden="true"><span class="octicon octicon-link"></span></a>TABBOOK</h3>
+<h3 id="tabbook">TABBOOK</h3>
 
 <p>The TABBOOK widget creates a tabbed area in which to place TABITEM widgets to form a tabbed layout.</p>
 
-<h3 id="tabitem">
-<a class="anchor" href="#tabitem" aria-hidden="true"><span class="octicon octicon-link"></span></a>TABITEM</h3>
+<h3 id="tabitem">TABITEM</h3>
 
 <p>The TABITEM widget creates a tab into which to place widgets. The tab automatically acts like a VERTICAL widget.</p>
 
@@ -830,13 +593,11 @@ END</code></pre></figure>
   END
 END</code></pre></figure>
 
-<h2 id="decoration-widgets">
-<a class="anchor" href="#decoration-widgets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Decoration Widgets</h2>
+<h2 id="decoration-widgets">Decoration Widgets</h2>
 
 <p>Decoration widgets are used to enhance the appearance of the screen. They do not respond to input, nor does the output vary with telemetry.</p>
 
-<h3 id="label">
-<a class="anchor" href="#label" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABEL</h3>
+<h3 id="label">LABEL</h3>
 
 <p>The LABEL widget displays text on the screen. Generally, label widgets contain a telemetry mnemonic and are placed next to the telemetry VALUE widget.</p>
 
@@ -863,13 +624,11 @@ END</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABEL <span class="s2">"Note: This is only a warning"</span></code></pre></figure>
 
-<h3 id="horizontalline">
-<a class="anchor" href="#horizontalline" aria-hidden="true"><span class="octicon octicon-link"></span></a>HORIZONTALLINE</h3>
+<h3 id="horizontalline">HORIZONTALLINE</h3>
 
 <p>The HORIZONTALLINE widget displays a horizontal line on the screen that can be used as a separator.</p>
 
-<h3 id="sectionheader">
-<a class="anchor" href="#sectionheader" aria-hidden="true"><span class="octicon octicon-link"></span></a>SECTIONHEADER</h3>
+<h3 id="sectionheader">SECTIONHEADER</h3>
 
 <p>The SECTIONHEADER widget displays a label that is underlined with a horizontal line. Generally, SECTIONHEADER widgets are the first widget placed inside of a VERTICALBOX widget.</p>
 
@@ -896,8 +655,7 @@ END</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">SECTIONHEADER Mechanisms</code></pre></figure>
 
-<h3 id="title">
-<a class="anchor" href="#title" aria-hidden="true"><span class="octicon octicon-link"></span></a>TITLE</h3>
+<h3 id="title">TITLE</h3>
 
 <p>The TITLE widget displays a large centered title on the screen.</p>
 
@@ -927,8 +685,7 @@ HORIZONTALLINE
 SECTIONHEADER <span class="s2">"Section Header"</span>
 LABEL <span class="s2">"Label"</span></code></pre></figure>
 
-<h3 id="spacer">
-<a class="anchor" href="#spacer" aria-hidden="true"><span class="octicon octicon-link"></span></a>SPACER</h3>
+<h3 id="spacer">SPACER</h3>
 
 <p>The SPACER widget inserts a spacer into a layout. This can be used to separate or align other widgets. For more information about how the widget size policy works please see the <a href="http://doc.qt.io/qt-4.8/qsizepolicy.html#Policy-enum">QSizePolicy::Policy</a>.</p>
 
@@ -974,13 +731,11 @@ LABEL <span class="s2">"Label"</span></code></pre></figure>
   LABEL <span class="s2">"Spacer above"</span>
 END</code></pre></figure>
 
-<h2 id="telemetry-widgets">
-<a class="anchor" href="#telemetry-widgets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Telemetry widgets</h2>
+<h2 id="telemetry-widgets">Telemetry widgets</h2>
 
 <p>Telemetry widgets are used to display telemetry values. The first parameters to each of these widgets is a telemetry mnemonic. Depending on the type and purpose of the telemetry item, the screen designer may select from a wide selection of widgets to display the value in the most useful format. They are listed here in alphabetical order.</p>
 
-<h3 id="array">
-<a class="anchor" href="#array" aria-hidden="true"><span class="octicon octicon-link"></span></a>ARRAY</h3>
+<h3 id="array">ARRAY</h3>
 
 <p>The ARRAY widget is used to display data from an array telemetry item. Data is organized into rows and by default space separated.</p>
 
@@ -1043,8 +798,7 @@ END</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">ARRAY INST HEALTH_STATUS ARY 250 50 <span class="s2">"0x%x"</span> 6 FORMATTED
 ARRAY INST HEALTH_STATUS ARY2 200 60 nil 4 WITH_UNITS</code></pre></figure>
 
-<h3 id="block">
-<a class="anchor" href="#block" aria-hidden="true"><span class="octicon octicon-link"></span></a>BLOCK</h3>
+<h3 id="block">BLOCK</h3>
 
 <p>The BLOCK widget is used to display data from a block telemetry item. Data is organized into rows and space separated.</p>
 
@@ -1116,8 +870,7 @@ ARRAY INST HEALTH_STATUS ARY2 200 60 nil 4 WITH_UNITS</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">BLOCK INST IMAGE IMAGE 400 130 <span class="s2">"%02X"</span> 4 4 <span class="s2">"0x%08X:"</span></code></pre></figure>
 
-<h3 id="formatfontvalue">
-<a class="anchor" href="#formatfontvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>FORMATFONTVALUE</h3>
+<h3 id="formatfontvalue">FORMATFONTVALUE</h3>
 
 <p>The FORMATFONTVALUE widget displays a box with a value printed inside that is formatted by the specified string rather than by a format string given in the telemetry definition files. Additionally, this widget can use a specified font. The white portion of the box darkens to gray while the value remains stagnant, then brightens to white each time the value changes. Additionally the value is colored based on the items limits state (Red for example if it is out of limits).</p>
 
@@ -1189,8 +942,7 @@ ARRAY INST HEALTH_STATUS ARY2 200 60 nil 4 WITH_UNITS</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">FORMATFONTVALUE INST LATEST TIMESEC %012u CONVERTED 12 arial 15 Qt::Font::Bold <span class="nb">true</span></code></pre></figure>
 
-<h3 id="formatvalue">
-<a class="anchor" href="#formatvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>FORMATVALUE</h3>
+<h3 id="formatvalue">FORMATVALUE</h3>
 
 <p>The FORMATVALUE widget displays a box with a value printed inside that is formatted by the specified string rather than by a format string given in the telemetry definition files. The white portion of the box darkens to gray while the value remains stagnant, then brightens to white each time the value changes. Additionally the value is colored based on the items limits state (Red for example if it is out of limits).</p>
 
@@ -1242,8 +994,7 @@ ARRAY INST HEALTH_STATUS ARY2 200 60 nil 4 WITH_UNITS</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">FORMATVALUE INST LATEST TIMESEC %012u CONVERTED 12</code></pre></figure>
 
-<h3 id="labelformatvalue">
-<a class="anchor" href="#labelformatvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABELFORMATVALUE</h3>
+<h3 id="labelformatvalue">LABELFORMATVALUE</h3>
 
 <p>The LABELFORMATVALUE widget displays a label with a value box that is formatted by the specified string rather than by a format string given in the telemetry definition files. The white portion of the box darkens to gray while the value remains stagnant, then brightens to white each time the value changes. Additionally the value is colored based on the items limits state (Red for example if it is out of limits).</p>
 
@@ -1295,8 +1046,7 @@ ARRAY INST HEALTH_STATUS ARY2 200 60 nil 4 WITH_UNITS</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELFORMATVALUE INST LATEST TIMESEC %012u CONVERTED 12</code></pre></figure>
 
-<h3 id="labelprogressbar">
-<a class="anchor" href="#labelprogressbar" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABELPROGRESSBAR</h3>
+<h3 id="labelprogressbar">LABELPROGRESSBAR</h3>
 
 <p>The LABELPROGRESSBAR widget displays a LABEL widget showing the items name followed by a PROGRESSBAR widget to show the items value.</p>
 
@@ -1349,8 +1099,7 @@ ARRAY INST HEALTH_STATUS ARY2 200 60 nil 4 WITH_UNITS</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELPROGRESSBAR INST ADCS POSPROGRESS 2 200 RAW
 LABELPROGRESSBAR INST ADCS POSPROGRESS</code></pre></figure>
 
-<h3 id="labeltrendlimitsbar">
-<a class="anchor" href="#labeltrendlimitsbar" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABELTRENDLIMITSBAR</h3>
+<h3 id="labeltrendlimitsbar">LABELTRENDLIMITSBAR</h3>
 
 <p>The LABELTRENDLIMITSBAR widget displays a LABEL widget to show the item’s name, a VALUE widget to show the telemetry items current value, a VALUE widget to display the value of the item X seconds ago, and a TRENDBAR widget to display the items value within its limits ranges and its trend.</p>
 
@@ -1413,8 +1162,7 @@ LABELPROGRESSBAR INST ADCS POSPROGRESS</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELTRENDLIMITSBAR INST HEALTH_STATUS TEMP1 CONVERTED 5 20 200 50
 LABELTRENDLIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="labelvalue">
-<a class="anchor" href="#labelvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABELVALUE</h3>
+<h3 id="labelvalue">LABELVALUE</h3>
 
 <p>The LABELVALUE widget displays a LABEL widget to shows the telemetry items name followed by a VALUE widget to display the items value.</p>
 
@@ -1467,8 +1215,7 @@ LABELTRENDLIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUE INST LATEST TIMESEC CONVERTED 18 center
 LABELVALUE INST LATEST COLLECT_TYPE</code></pre></figure>
 
-<h3 id="labelvaluedesc">
-<a class="anchor" href="#labelvaluedesc" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABELVALUEDESC</h3>
+<h3 id="labelvaluedesc">LABELVALUEDESC</h3>
 
 <p>The LABELVALUEDESC widget displays a LABEL widget to shows the telemetry items description followed by a VALUE widget to display the items value.</p>
 
@@ -1521,8 +1268,7 @@ LABELVALUE INST LATEST COLLECT_TYPE</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUEDESC INST LATEST TIMESEC <span class="s2">"Time in seconds"</span> CONVERTED 18
 LABELVALUEDESC INST LATEST COLLECT_TYPE</code></pre></figure>
 
-<h3 id="labelvaluelimitsbar">
-<a class="anchor" href="#labelvaluelimitsbar" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABELVALUELIMITSBAR</h3>
+<h3 id="labelvaluelimitsbar">LABELVALUELIMITSBAR</h3>
 
 <p>The LABELVALUELIMITSBAR widget displays a LABEL widget to shows the telemetry item’s name, followed by a VALUE widget to display the items value, followed by a LIMITSBAR widget.</p>
 
@@ -1570,8 +1316,7 @@ LABELVALUEDESC INST LATEST COLLECT_TYPE</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUELIMITSBAR INST HEALTH_STATUS TEMP1 CONVERTED 18
 LABELVALUELIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="labelvaluelimitscolumn">
-<a class="anchor" href="#labelvaluelimitscolumn" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABELVALUELIMITSCOLUMN</h3>
+<h3 id="labelvaluelimitscolumn">LABELVALUELIMITSCOLUMN</h3>
 
 <p>The LABELVALUELIMITSCOLUMN widget displays a LABEL widget to shows the telemetry item’s name, followed by a VALUE widget to display the items value, followed by a LIMITSCOLUMN widget.</p>
 
@@ -1619,8 +1364,7 @@ LABELVALUELIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUELIMITSCOLUMN INST HEALTH_STATUS TEMP1 CONVERTED 18
 LABELVALUELIMITSCOLUMN INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="labelvaluerangebar">
-<a class="anchor" href="#labelvaluerangebar" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABELVALUERANGEBAR</h3>
+<h3 id="labelvaluerangebar">LABELVALUERANGEBAR</h3>
 
 <p>The LABELVALUERANGEBAR widget displays a LABEL widget to shows the telemetry item’s name, followed by a VALUE widget to display the items value, followed by a RANGEBAR widget.</p>
 
@@ -1688,8 +1432,7 @@ LABELVALUELIMITSCOLUMN INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUERANGEBAR INST HEALTH_STATUS TEMP1 0 50 CONVERTED 18 200 50
 LABELVALUERANGEBAR INST HEALTH_STATUS TEMP1 0 50</code></pre></figure>
 
-<h3 id="labelvaluerangecolumn">
-<a class="anchor" href="#labelvaluerangecolumn" aria-hidden="true"><span class="octicon octicon-link"></span></a>LABELVALUERANGECOLUMN</h3>
+<h3 id="labelvaluerangecolumn">LABELVALUERANGECOLUMN</h3>
 
 <p>The LABELVALUERANGECOLUMN widget displays a LABEL widget to shows the telemetry item’s name, followed by a VALUE widget to display the items value, followed by a RANGECOLUMN widget.</p>
 
@@ -1757,8 +1500,7 @@ LABELVALUERANGEBAR INST HEALTH_STATUS TEMP1 0 50</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUERANGECOLUMN INST HEALTH_STATUS TEMP1 0 50 CONVERTED 18 50 200
 LABELVALUERANGECOLUMN INST HEALTH_STATUS TEMP1 0 50</code></pre></figure>
 
-<h3 id="limitsbar">
-<a class="anchor" href="#limitsbar" aria-hidden="true"><span class="octicon octicon-link"></span></a>LIMITSBAR</h3>
+<h3 id="limitsbar">LIMITSBAR</h3>
 
 <p>The LIMITSBAR widget displays a graphical representation of where an items value falls withing its limits ranges horizontally.</p>
 
@@ -1811,8 +1553,7 @@ LABELVALUERANGECOLUMN INST HEALTH_STATUS TEMP1 0 50</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LIMITSBAR INST HEALTH_STATUS TEMP1 CONVERTED 200 50
 LIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="limitscolumn">
-<a class="anchor" href="#limitscolumn" aria-hidden="true"><span class="octicon octicon-link"></span></a>LIMITSCOLUMN</h3>
+<h3 id="limitscolumn">LIMITSCOLUMN</h3>
 
 <p>The LIMITSCOLUMN widget displays a graphical representation of where an items value falls withing its limits ranges vertically.</p>
 
@@ -1865,8 +1606,7 @@ LIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LIMITSCOLUMN INST HEALTH_STATUS TEMP1 CONVERTED 50 200
 LIMITSCOLUMN INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="limitscolor">
-<a class="anchor" href="#limitscolor" aria-hidden="true"><span class="octicon octicon-link"></span></a>LIMITSCOLOR</h3>
+<h3 id="limitscolor">LIMITSCOLOR</h3>
 
 <p>The LIMITSCOLOR widget displays a stoplight-like circle depicting the limits color of an item</p>
 
@@ -1919,8 +1659,7 @@ LIMITSCOLUMN INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LIMITSCOLOR INST HEALTH_STATUS TEMP1 CONVERTED 20 TRUE
 LIMITSCOLOR INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="valuelimitsbar">
-<a class="anchor" href="#valuelimitsbar" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUELIMITSBAR</h3>
+<h3 id="valuelimitsbar">VALUELIMITSBAR</h3>
 
 <p>The VALUELIMITSBAR widget displays a graphical representation of where an items value falls withing its limits ranges horizontally and its value in a VALUE widget.</p>
 
@@ -1968,8 +1707,7 @@ LIMITSCOLOR INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">VALUELIMITSBAR INST HEALTH_STATUS TEMP1 CONVERTED 18
 VALUELIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="valuelimitscolumn">
-<a class="anchor" href="#valuelimitscolumn" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUELIMITSCOLUMN</h3>
+<h3 id="valuelimitscolumn">VALUELIMITSCOLUMN</h3>
 
 <p>The VALUELIMITSCOLUMN widget displays a graphical representation of where an items value falls withing its limits ranges vertically and its value in a VALUE widget.</p>
 
@@ -2017,8 +1755,7 @@ VALUELIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">VALUELIMITSCOLUMN INST HEALTH_STATUS TEMP1 CONVERTED 18
 VALUELIMITSCOLUMN INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="valuerangebar">
-<a class="anchor" href="#valuerangebar" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUERANGEBAR</h3>
+<h3 id="valuerangebar">VALUERANGEBAR</h3>
 
 <p>The VALUERANGEBAR widget displays a graphical representation of where an items value falls withing a range horizontally and its value in a VALUE widget.</p>
 
@@ -2086,8 +1823,7 @@ VALUELIMITSCOLUMN INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">VALUERANGEBAR INST HEALTH_STATUS TEMP1 0 100 CONVERTED 18 200 50
 VALUERANGEBAR INST HEALTH_STATUS TEMP1 <span class="nt">-1000</span> 1000</code></pre></figure>
 
-<h3 id="valuerangecolumn">
-<a class="anchor" href="#valuerangecolumn" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUERANGECOLUMN</h3>
+<h3 id="valuerangecolumn">VALUERANGECOLUMN</h3>
 
 <p>The VALUERANGECOLUMN widget displays a graphical representation of where an items value falls withing a range vertically and its value in a VALUE widget..</p>
 
@@ -2155,8 +1891,7 @@ VALUERANGEBAR INST HEALTH_STATUS TEMP1 <span class="nt">-1000</span> 1000</code>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">VALUERANGECOLUMN INST HEALTH_STATUS TEMP1 0 100 CONVERTED 18 50 200
 VALUERANGECOLUMN INST HEALTH_STATUS TEMP1 <span class="nt">-1000</span> 1000</code></pre></figure>
 
-<h3 id="linegraph">
-<a class="anchor" href="#linegraph" aria-hidden="true"><span class="octicon octicon-link"></span></a>LINEGRAPH</h3>
+<h3 id="linegraph">LINEGRAPH</h3>
 
 <p>The LINEGRAPH widget displays a line graph of a telemetry items value verses sample number.</p>
 
@@ -2214,8 +1949,7 @@ VALUERANGECOLUMN INST HEALTH_STATUS TEMP1 <span class="nt">-1000</span> 1000</co
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LINEGRAPH INST HEALTH_STATUS TEMP1
 LINEGRAPH INST HEALTH_STATUS TEMP1 10 400 100 RAW</code></pre></figure>
 
-<h3 id="progressbar">
-<a class="anchor" href="#progressbar" aria-hidden="true"><span class="octicon octicon-link"></span></a>PROGRESSBAR</h3>
+<h3 id="progressbar">PROGRESSBAR</h3>
 
 <p>The PROGRESSBAR widget displays a progress bar that is useful for displaying percentages.</p>
 
@@ -2268,8 +2002,7 @@ LINEGRAPH INST HEALTH_STATUS TEMP1 10 400 100 RAW</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">PROGRESSBAR INST ADCS POSPROGRESS 0.5 200
 PROGRESSBAR INST ADCS POSPROGRESS</code></pre></figure>
 
-<h3 id="rangebar">
-<a class="anchor" href="#rangebar" aria-hidden="true"><span class="octicon octicon-link"></span></a>RANGEBAR</h3>
+<h3 id="rangebar">RANGEBAR</h3>
 
 <p>The RANGEBAR widget displays a graphical representation of where an items value falls withing a range horizontally.</p>
 
@@ -2332,8 +2065,7 @@ PROGRESSBAR INST ADCS POSPROGRESS</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">RANGEBAR INST HEALTH_STATUS TEMP1 0 100 CONVERTED 200 50
 RANGEBAR INST HEALTH_STATUS TEMP1 <span class="nt">-1000</span> 1000</code></pre></figure>
 
-<h3 id="rangecolumn">
-<a class="anchor" href="#rangecolumn" aria-hidden="true"><span class="octicon octicon-link"></span></a>RANGECOLUMN</h3>
+<h3 id="rangecolumn">RANGECOLUMN</h3>
 
 <p>The RANGECOLUMN widget displays a graphical representation of where an items value falls withing a range vertically.</p>
 
@@ -2396,8 +2128,7 @@ RANGEBAR INST HEALTH_STATUS TEMP1 <span class="nt">-1000</span> 1000</code></pre
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">RANGECOLUMN INST HEALTH_STATUS TEMP1 0 100 CONVERTED 50 200
 RANGECOLUMN INST HEALTH_STATUS TEMP1 <span class="nt">-1000</span> 1000</code></pre></figure>
 
-<h3 id="textbox">
-<a class="anchor" href="#textbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>TEXTBOX</h3>
+<h3 id="textbox">TEXTBOX</h3>
 
 <p>The TEXTBOX widget provides a large box for multiline text.</p>
 
@@ -2450,8 +2181,7 @@ RANGECOLUMN INST HEALTH_STATUS TEMP1 <span class="nt">-1000</span> 1000</code></
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">TEXTBOX INST HEALTH_STATUS TIMEFORMATTED 150 50
 TEXTBOX INST HEALTH_STATUS TIMEFORMATTED</code></pre></figure>
 
-<h3 id="timegraph">
-<a class="anchor" href="#timegraph" aria-hidden="true"><span class="octicon octicon-link"></span></a>TIMEGRAPH</h3>
+<h3 id="timegraph">TIMEGRAPH</h3>
 
 <p>The TIMEGRAPH widget displays a line graph of a telemetry items value verses time.</p>
 
@@ -2519,8 +2249,7 @@ TEXTBOX INST HEALTH_STATUS TIMEFORMATTED</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">TIMEGRAPH INST HEALTH_STATUS TEMP1
 TIMEGRAPH INST HEALTH_STATUS TEMP1 10 400 100 <span class="nb">false </span>TIMESECONDS CONVERTED</code></pre></figure>
 
-<h3 id="trendbar">
-<a class="anchor" href="#trendbar" aria-hidden="true"><span class="octicon octicon-link"></span></a>TRENDBAR</h3>
+<h3 id="trendbar">TRENDBAR</h3>
 
 <p>The TRENDBAR widget provides the same functionality as the LIMITSBAR widget except that it also keeps a history of the telemetry item and graphically shows where the value was X seconds ago.</p>
 
@@ -2578,8 +2307,7 @@ TIMEGRAPH INST HEALTH_STATUS TEMP1 10 400 100 <span class="nb">false </span>TIME
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">TRENDBAR INST HEALTH_STATUS TEMP1 CONVERTED 20 200 50
 TRENDBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="trendlimitsbar">
-<a class="anchor" href="#trendlimitsbar" aria-hidden="true"><span class="octicon octicon-link"></span></a>TRENDLIMITSBAR</h3>
+<h3 id="trendlimitsbar">TRENDLIMITSBAR</h3>
 
 <p>The TRENDLIMITSBAR widget displays a VALUE widget to show the telemetry items current value, a VALUE widget to display the value of the item X seconds ago, and a TRENDBAR widget to display the items value within its limits ranges and its trend.</p>
 
@@ -2642,8 +2370,7 @@ TRENDBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">TRENDLIMITSBAR INST HEALTH_STATUS TEMP1 CONVERTED 20 20 200 50
 TRENDLIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h3 id="value">
-<a class="anchor" href="#value" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUE</h3>
+<h3 id="value">VALUE</h3>
 
 <p>The VALUE widget displays a box with a value printed inside. The white portion of the box darkens to gray while the value remains stagnant, then brightens to white each time the value changes. Additionally the value is colored based on the items limits state (Red for example if it is out of limits).</p>
 
@@ -2691,13 +2418,11 @@ TRENDLIMITSBAR INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">VALUE INST HEALTH_STATUS TEMP1 CONVERTED 18
 VALUE INST HEALTH_STATUS TEMP1</code></pre></figure>
 
-<h2 id="interactive-widgets">
-<a class="anchor" href="#interactive-widgets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interactive Widgets</h2>
+<h2 id="interactive-widgets">Interactive Widgets</h2>
 
 <p>Interactive widgets are used to gather input from the user. Unlike all other widgets, which only output some graphical representation, interactive widgets permit input either from the keyboard or mouse.</p>
 
-<h3 id="button">
-<a class="anchor" href="#button" aria-hidden="true"><span class="octicon octicon-link"></span></a>BUTTON</h3>
+<h3 id="button">BUTTON</h3>
 
 <p>The BUTTON widget displays a rectangular button that is clickable by the mouse. Upon clicking, the button executes the Javascript code assigned. Buttons can be used to send commands and perform other tasks.</p>
 
@@ -2731,8 +2456,7 @@ VALUE INST HEALTH_STATUS TEMP1</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">BUTTON <span class="s1">'Start Collect'</span> <span class="s1">'api.cmd("INST COLLECT with TYPE NORMAL, DURATION 5")'</span></code></pre></figure>
 
-<h3 id="checkbutton">
-<a class="anchor" href="#checkbutton" aria-hidden="true"><span class="octicon octicon-link"></span></a>CHECKBUTTON</h3>
+<h3 id="checkbutton">CHECKBUTTON</h3>
 
 <p>The CHECKBUTTON widget displays a check box. Note this is of limited use by itself and is primarily used in conjunction with NAMED_WIDGET.</p>
 
@@ -2765,8 +2489,7 @@ VALUE INST HEALTH_STATUS TEMP1</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">NAMED_WIDGET CHECK CHECKBUTTON <span class="s1">'Ignore Hazardous Checks'</span>
 BUTTON <span class="s1">'Send'</span> <span class="s1">'screen.get_named_widget("CHECK").checked() ? api.cmd_no_hazardous_check("INST CLEAR") : api.cmd("INST CLEAR")'</span></code></pre></figure>
 
-<h3 id="combobox">
-<a class="anchor" href="#combobox" aria-hidden="true"><span class="octicon octicon-link"></span></a>COMBOBOX</h3>
+<h3 id="combobox">COMBOBOX</h3>
 
 <p>The COMBOBOX widget displays a drop down list of text items that the user can choose from. Note this is of limited use by itself and is primarily used in conjunction with NAMED_WIDGET.</p>
 
@@ -2799,8 +2522,7 @@ BUTTON <span class="s1">'Send'</span> <span class="s1">'screen.get_named_widget(
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">BUTTON <span class="s1">'Start Collect'</span> <span class="s1">'api.cmd("INST COLLECT with TYPE '</span>+screen.get_named_widget<span class="o">(</span><span class="s2">"COLLECT_TYPE"</span><span class="o">)</span>.text<span class="o">()</span>+<span class="s1">', DURATION 10.0")'</span>
 NAMED_WIDGET COLLECT_TYPE COMBOBOX NORMAL SPECIAL</code></pre></figure>
 
-<h3 id="radiobutton">
-<a class="anchor" href="#radiobutton" aria-hidden="true"><span class="octicon octicon-link"></span></a>RADIOBUTTON</h3>
+<h3 id="radiobutton">RADIOBUTTON</h3>
 
 <p>The RADIOBUTTON widget a radio button and text. Note this is of limited use by itself and is primarily used in conjunction with NAMED_WIDGET.</p>
 
@@ -2834,8 +2556,7 @@ NAMED_WIDGET COLLECT_TYPE COMBOBOX NORMAL SPECIAL</code></pre></figure>
 NAMED_WIDGET CLEAR RADIOBUTTON <span class="s1">'Clear'</span>
 BUTTON <span class="s1">'Send'</span> <span class="s1">'screen.get_named_widget("ABORT").checked() ? cmd("INST ABORT") : cmd("INST CLEAR")'</span></code></pre></figure>
 
-<h3 id="textfield">
-<a class="anchor" href="#textfield" aria-hidden="true"><span class="octicon octicon-link"></span></a>TEXTFIELD</h3>
+<h3 id="textfield">TEXTFIELD</h3>
 
 <p>The TEXTFIELD widget displays a rectangular box that the user can enter text into.</p>
 
@@ -2868,13 +2589,11 @@ BUTTON <span class="s1">'Send'</span> <span class="s1">'screen.get_named_widget(
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">NAMED_WIDGET DURATION TEXTFIELD 12 <span class="s2">"10.0"</span>
 BUTTON <span class="s1">'Start Collect'</span> <span class="s1">'api.cmd("INST COLLECT with TYPE NORMAL, DURATION '</span>+screen.get_named_widget<span class="o">(</span><span class="s2">"DURATION"</span><span class="o">)</span>.text<span class="o">()</span>+<span class="s1">'")'</span></code></pre></figure>
 
-<h2 id="canvas-widgets">
-<a class="anchor" href="#canvas-widgets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Canvas Widgets</h2>
+<h2 id="canvas-widgets">Canvas Widgets</h2>
 
 <p>Canvas Widgets are used to draw custom displays into telemetry screens. The canvas coordinate frame places (0,0) in the upper-left corner of the canvas.</p>
 
-<h3 id="canvas">
-<a class="anchor" href="#canvas" aria-hidden="true"><span class="octicon octicon-link"></span></a>CANVAS</h3>
+<h3 id="canvas">CANVAS</h3>
 
 <p>The CANVAS widget is the layout widget for the other canvas widgets. All canvas widgets must be enclosed within a CANVAS widget. It is included with the other CANVAS widgets rather than in the layout section for simplicity.</p>
 
@@ -2902,8 +2621,7 @@ BUTTON <span class="s1">'Start Collect'</span> <span class="s1">'api.cmd("INST C
 
 <p>Example Usage: See the other Canvas examples</p>
 
-<h3 id="canvaslabel">
-<a class="anchor" href="#canvaslabel" aria-hidden="true"><span class="octicon octicon-link"></span></a>CANVASLABEL</h3>
+<h3 id="canvaslabel">CANVASLABEL</h3>
 
 <p>The CANVASLABEL widget draws text onto the canvas.</p>
 
@@ -2953,8 +2671,7 @@ BUTTON <span class="s1">'Start Collect'</span> <span class="s1">'api.cmd("INST C
   CANVASLABEL 5 70 <span class="s2">"Label2"</span> 18 blue
 END</code></pre></figure>
 
-<h3 id="canvaslabelvalue">
-<a class="anchor" href="#canvaslabelvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>CANVASLABELVALUE</h3>
+<h3 id="canvaslabelvalue">CANVASLABELVALUE</h3>
 
 <p>The CANVASLABELVALUE widget draws the text value of a telemetry item onto the canvas in an optional frame.</p>
 
@@ -3029,8 +2746,7 @@ END</code></pre></figure>
   CANVASLABELVALUE INST HEALTH_STATUS TEMP2 5 70 10 blue <span class="nb">false </span>0 WITH_UNITS
 END</code></pre></figure>
 
-<h3 id="canvasimage">
-<a class="anchor" href="#canvasimage" aria-hidden="true"><span class="octicon octicon-link"></span></a>CANVASIMAGE</h3>
+<h3 id="canvasimage">CANVASIMAGE</h3>
 
 <p>The CANVASIMAGE widget displays a GIF image on the canvas.</p>
 
@@ -3080,8 +2796,7 @@ END</code></pre></figure>
   CANVASIMAGE <span class="s2">"https://images.pexels.com/photos/256152/pexels-photo-256152.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=640&amp;w=426"</span> 0 250 250 150
 END</code></pre></figure>
 
-<h3 id="canvasimagevalue">
-<a class="anchor" href="#canvasimagevalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>CANVASIMAGEVALUE</h3>
+<h3 id="canvasimagevalue">CANVASIMAGEVALUE</h3>
 
 <p>The CANVASIMAGEVALUE widget displays a GIF image on the canvas that changes with a telemetry value.</p>
 
@@ -3141,8 +2856,7 @@ END</code></pre></figure>
   </span>CANVASIMAGEVALUE INST HEALTH_STATUS GROUND1STATUS <span class="s2">"ground"</span> 0 20 <span class="c"># Uses groundon.gif and groundoff.gif</span>
 END</code></pre></figure>
 
-<h3 id="canvasline">
-<a class="anchor" href="#canvasline" aria-hidden="true"><span class="octicon octicon-link"></span></a>CANVASLINE</h3>
+<h3 id="canvasline">CANVASLINE</h3>
 
 <p>The CANVASLINE widget draws a line onto the canvas.</p>
 
@@ -3203,8 +2917,7 @@ END</code></pre></figure>
   CANVASLINE 95 5 95 45 blue 3 CONNECTOR
 END</code></pre></figure>
 
-<h3 id="canvaslinevalue">
-<a class="anchor" href="#canvaslinevalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>CANVASLINEVALUE</h3>
+<h3 id="canvaslinevalue">CANVASLINEVALUE</h3>
 
 <p>The CANVASLINEVALUE widget draws a line onto the canvas in one of two colors based on the value of the associated telemetry item.</p>
 
@@ -3290,8 +3003,7 @@ END</code></pre></figure>
   CANVASLINEVALUE INST HEALTH_STATUS GROUND1STATUS 5 45 115 45 purple red 3 CONNECTOR
 END</code></pre></figure>
 
-<h3 id="canvasdot">
-<a class="anchor" href="#canvasdot" aria-hidden="true"><span class="octicon octicon-link"></span></a>CANVASDOT</h3>
+<h3 id="canvasdot">CANVASDOT</h3>
 
 <p>The CANVASDOT widget draws a dot onto the canvas, and it can be programmed to change its position with ruby code.</p>
 
@@ -3341,20 +3053,17 @@ END</code></pre></figure>
   CANVASDOT <span class="s1">'api.tlm_variable("GIMBAL AXIS_STATUS_X POSITION", :RAW) + 100'</span> <span class="s1">'api.tlm_variable("GIMBAL AXIS_STATUS_Y POSITION", :RAW) + 100'</span> red
 END</code></pre></figure>
 
-<p><img src="https://cloud.githubusercontent.com/assets/5217851/11122513/d29af8c0-8918-11e5-9138-17011956911a.jpg" alt="720311333_78794"></p>
+<p><img src="https://cloud.githubusercontent.com/assets/5217851/11122513/d29af8c0-8918-11e5-9138-17011956911a.jpg" alt="720311333_78794" /></p>
 
-<h2 id="widget-settings">
-<a class="anchor" href="#widget-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Widget Settings</h2>
+<h2 id="widget-settings">Widget Settings</h2>
 
 <p>Settings allow for additional tweaks and options to be applied to widgets that are not available in their constructors. These settings are all configured through the SETTING and GLOBAL_SETTING keywords. SETTING applies only to the widget defined immediately before it. GLOBAL_SETTING applies to all widgets.</p>
 
-<h2 id="common-settings">
-<a class="anchor" href="#common-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Common Settings</h2>
+<h2 id="common-settings">Common Settings</h2>
 
 <p>The following settings are available to all widgets if their underlying Qt GUI object supports them.</p>
 
-<h3 id="backcolor">
-<a class="anchor" href="#backcolor" aria-hidden="true"><span class="octicon octicon-link"></span></a>BACKCOLOR</h3>
+<h3 id="backcolor">BACKCOLOR</h3>
 
 <p>The BACKCOLOR setting sets the background color for a widget.</p>
 
@@ -3411,8 +3120,7 @@ END</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">SETTING BACKCOLOR red
 SETTING BACKCOLOR 162 181 205</code></pre></figure>
 
-<h3 id="textcolor">
-<a class="anchor" href="#textcolor" aria-hidden="true"><span class="octicon octicon-link"></span></a>TEXTCOLOR</h3>
+<h3 id="textcolor">TEXTCOLOR</h3>
 
 <p>The TEXTCOLOR setting sets the text color for a widget.</p>
 
@@ -3467,8 +3175,7 @@ SETTING BACKCOLOR 162 181 205</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">SETTING TEXTCOLOR red
 SETTING TEXTCOLOR 162 181 205</code></pre></figure>
 
-<h3 id="width">
-<a class="anchor" href="#width" aria-hidden="true"><span class="octicon octicon-link"></span></a>WIDTH</h3>
+<h3 id="width">WIDTH</h3>
 
 <p>The WIDTH setting forces the height of a widget to a certain size.</p>
 
@@ -3495,8 +3202,7 @@ SETTING TEXTCOLOR 162 181 205</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">SETTING WIDTH 100</code></pre></figure>
 
-<h3 id="height">
-<a class="anchor" href="#height" aria-hidden="true"><span class="octicon octicon-link"></span></a>HEIGHT</h3>
+<h3 id="height">HEIGHT</h3>
 
 <p>The HEIGHT setting forces the height of a widget to a certain size.</p>
 
@@ -3523,13 +3229,11 @@ SETTING TEXTCOLOR 162 181 205</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">SETTING HEIGHT 100</code></pre></figure>
 
-<h2 id="widget-specific-settings">
-<a class="anchor" href="#widget-specific-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Widget-Specific Settings</h2>
+<h2 id="widget-specific-settings">Widget-Specific Settings</h2>
 
 <p>The following settings are only available to the widgets listed.</p>
 
-<h3 id="bordercolor">
-<a class="anchor" href="#bordercolor" aria-hidden="true"><span class="octicon octicon-link"></span></a>BORDERCOLOR</h3>
+<h3 id="bordercolor">BORDERCOLOR</h3>
 
 <p>The BORDERCOLOR setting changes the color of a layout widgets border.</p>
 
@@ -3589,8 +3293,7 @@ SETTING TEXTCOLOR 162 181 205</code></pre></figure>
 END
 SETTING BORDERCOLOR red</code></pre></figure>
 
-<h3 id="colorblind">
-<a class="anchor" href="#colorblind" aria-hidden="true"><span class="octicon octicon-link"></span></a>COLORBLIND</h3>
+<h3 id="colorblind">COLORBLIND</h3>
 
 <p>The COLORBLIND setting enables/disables providing clues in visualization for users that are colorblind. Supported by all VALUE widgets.</p>
 
@@ -3618,8 +3321,7 @@ SETTING BORDERCOLOR red</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUELIMITSBAR INST HEALTH_STATUS TEMP1
 SETTING COLORBLIND TRUE</code></pre></figure>
 
-<h3 id="enable_aging">
-<a class="anchor" href="#enable_aging" aria-hidden="true"><span class="octicon octicon-link"></span></a>ENABLE_AGING</h3>
+<h3 id="enable_aging">ENABLE_AGING</h3>
 
 <p>The ENABLE_AGING setting enables/disables graying of widgets if there value doesn’t change. Supported by ARRAY, BLOCK, and all VALUE widgets.</p>
 
@@ -3647,8 +3349,7 @@ SETTING COLORBLIND TRUE</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUE INST HEALTH_STATUS COLLECTS
 SETTING ENABLE_AGING FALSE</code></pre></figure>
 
-<h3 id="gray_rate--grey_rate">
-<a class="anchor" href="#gray_rate--grey_rate" aria-hidden="true"><span class="octicon octicon-link"></span></a>GRAY_RATE / GREY_RATE</h3>
+<h3 id="gray_rate--grey_rate">GRAY_RATE / GREY_RATE</h3>
 
 <p>The GRAY_RATE and GREY_RATE settings change the rate at which graying occurs in widgets. Supported by ARRAY, BLOCK, and all VALUE widgets.</p>
 
@@ -3676,8 +3377,7 @@ SETTING ENABLE_AGING FALSE</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUE INST HEALTH_STATUS COLLECTS
 SETTING GRAY_RATE 5</code></pre></figure>
 
-<h3 id="gray_tolerance--grey_tolerance">
-<a class="anchor" href="#gray_tolerance--grey_tolerance" aria-hidden="true"><span class="octicon octicon-link"></span></a>GRAY_TOLERANCE / GREY_TOLERANCE</h3>
+<h3 id="gray_tolerance--grey_tolerance">GRAY_TOLERANCE / GREY_TOLERANCE</h3>
 
 <p>The GRAY_TOLERANCE and GREY_TOLERANCE settings set the maximum change in value that will not cause the widget to recognize an items value as changing. Supported by all VALUE widgets.</p>
 
@@ -3705,8 +3405,7 @@ SETTING GRAY_RATE 5</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">LABELVALUE INST HEALTH_STATUS COLLECTS
 SETTING GRAY_TOLERANCE 1</code></pre></figure>
 
-<h3 id="min_gray--min_grey">
-<a class="anchor" href="#min_gray--min_grey" aria-hidden="true"><span class="octicon octicon-link"></span></a>MIN_GRAY / MIN_GREY</h3>
+<h3 id="min_gray--min_grey">MIN_GRAY / MIN_GREY</h3>
 
 <p>The MIN_GRAY and MIN_GREY settings set the minimum shade of a gray that a widget will decay to if its value doesn’t change. Supported by ARRAY, BLOCK, and all VALUE widgets.</p>
 
@@ -3735,8 +3434,7 @@ SETTING GRAY_TOLERANCE 1</code></pre></figure>
 SETTING GRAY_TOLERANCE 1000 <span class="c"># Prevent the widget from refreshing by choosing a high tolerance</span>
 SETTING MIN_GRAY 0 <span class="c"># Set the minimum gray to black</span></code></pre></figure>
 
-<h3 id="trend_seconds">
-<a class="anchor" href="#trend_seconds" aria-hidden="true"><span class="octicon octicon-link"></span></a>TREND_SECONDS</h3>
+<h3 id="trend_seconds">TREND_SECONDS</h3>
 
 <p>The TREND_SECONDS setting changes the number of seconds using during trending. Supported by the TREND widgets.</p>
 
@@ -3764,8 +3462,7 @@ SETTING MIN_GRAY 0 <span class="c"># Set the minimum gray to black</span></code>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">TRENDBAR INST HEALTH_STATUS TEMP1
 SETTING TREND_SECONDS 10</code></pre></figure>
 
-<h3 id="value_eq">
-<a class="anchor" href="#value_eq" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUE_EQ</h3>
+<h3 id="value_eq">VALUE_EQ</h3>
 
 <p>The VALUE_EQ setting configures for an equal to comparison for a canvas value widget to determine ‘ON’ state. Supported widgets: CANVASIMAGEVALUE, CANVASLABELVALUE, CANVASLINEVALUE.</p>
 
@@ -3793,8 +3490,7 @@ SETTING TREND_SECONDS 10</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">CANVASIMAGEVALUE INST HEALTH_STATUS GROUND1STATUS <span class="s2">"ground"</span> 400 100
 SETTING VALUE_EQ 0</code></pre></figure>
 
-<h3 id="value_gt">
-<a class="anchor" href="#value_gt" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUE_GT</h3>
+<h3 id="value_gt">VALUE_GT</h3>
 
 <p>The VALUE_GT setting configures for a greater than comparison for a canvas value widget to determine ‘ON’ state. Supported widgets: CANVASIMAGEVALUE, CANVASLABELVALUE, CANVASLINEVALUE.</p>
 
@@ -3822,8 +3518,7 @@ SETTING VALUE_EQ 0</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">CANVASIMAGEVALUE INST HEALTH_STATUS TEMP1 <span class="s2">"ground"</span> 400 100
 SETTING VALUE_GT 10.0</code></pre></figure>
 
-<h3 id="value_gteq">
-<a class="anchor" href="#value_gteq" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUE_GTEQ</h3>
+<h3 id="value_gteq">VALUE_GTEQ</h3>
 
 <p>The VALUE_GTEQ setting configures for a greater than or equal to comparison for a canvas value widget to determine ‘ON’ state. Supported widgets: CANVASIMAGEVALUE, CANVASLABELVALUE, CANVASLINEVALUE.</p>
 
@@ -3851,8 +3546,7 @@ SETTING VALUE_GT 10.0</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">CANVASIMAGEVALUE INST HEALTH_STATUS TEMP1 <span class="s2">"ground"</span> 400 100
 SETTING VALUE_GTEQ 10.0</code></pre></figure>
 
-<h3 id="value_lt">
-<a class="anchor" href="#value_lt" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUE_LT</h3>
+<h3 id="value_lt">VALUE_LT</h3>
 
 <p>The VALUE_LT setting configures for a less than comparison for a canvas value widget to determine ‘ON’ state. Supported widgets: CANVASIMAGEVALUE, CANVASLABELVALUE, CANVASLINEVALUE.</p>
 
@@ -3880,8 +3574,7 @@ SETTING VALUE_GTEQ 10.0</code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">CANVASIMAGEVALUE INST HEALTH_STATUS TEMP1 <span class="s2">"ground"</span> 400 100
 SETTING VALUE_LT 10.0</code></pre></figure>
 
-<h3 id="value_lteq">
-<a class="anchor" href="#value_lteq" aria-hidden="true"><span class="octicon octicon-link"></span></a>VALUE_LTEQ</h3>
+<h3 id="value_lteq">VALUE_LTEQ</h3>
 
 <p>The VALUE_LTEQ setting configures for a less than or equal to comparison for a canvas value widget to determine ‘ON’ state.
 Supported widgets: CANVASIMAGEVALUE, CANVASLABELVALUE, CANVASLINEVALUE.</p>
@@ -3910,8 +3603,7 @@ Supported widgets: CANVASIMAGEVALUE, CANVASLABELVALUE, CANVASLINEVALUE.</p>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">CANVASIMAGEVALUE INST HEALTH_STATUS TEMP1 <span class="s2">"ground"</span> 400 100
 SETTING VALUE_LTEQ 10.0</code></pre></figure>
 
-<h3 id="tlm_and">
-<a class="anchor" href="#tlm_and" aria-hidden="true"><span class="octicon octicon-link"></span></a>TLM_AND</h3>
+<h3 id="tlm_and">TLM_AND</h3>
 
 <p>The TLM_AND setting allows added another comparison that is anded with the original comparison for a canvas value widget to determine ‘ON’ state. Supported widgets: CANVASIMAGEVALUE, CANVASLABELVALUE, CANVASLINEVALUE.</p>
 
@@ -3960,8 +3652,7 @@ SETTING VALUE_LTEQ 10.0</code></pre></figure>
 SETTING VALUE_LTEQ 10.0
 SETTING TLM_AND INST HEALTH_STATUS TEMP2 VALUE_GT 20.0</code></pre></figure>
 
-<h3 id="tlm_or">
-<a class="anchor" href="#tlm_or" aria-hidden="true"><span class="octicon octicon-link"></span></a>TLM_OR</h3>
+<h3 id="tlm_or">TLM_OR</h3>
 
 <p>The TLM_OR setting allows added another comparison that is ored with the original comparison for a canvas value widget to determine ‘ON’ state. Supported widgets: CANVASIMAGEVALUE, CANVASLABELVALUE, CANVASLINEVALUE.</p>
 
@@ -4010,1134 +3701,4 @@ SETTING TLM_AND INST HEALTH_STATUS TEMP2 VALUE_GT 20.0</code></pre></figure>
 SETTING VALUE_LTEQ 10.0
 SETTING TLM_OR INST HEALTH_STATUS TEMP2 VALUE_GT 20.0</code></pre></figure>
 
-
-      </article>
-    </div>
-
-    <div class="unit one-fifth hide-on-mobiles">
-  <aside>
-    <ul>
-      
-      <!-- Ignore "posts" and "docs", we only want versioned collections -->
-      <!-- prettier-ignore -->
-       
-      <!-- Ignore "posts" and "docs", we only want versioned collections -->
-      <!-- prettier-ignore -->
-      
-      
-      <li>
-        <!-- Only create links to collections which aren't our own  -->
-        
-        <a href="/docs/v4/"
-          >v4 Docs</a
-        >
-          
-      <!-- Ignore "posts" and "docs", we only want versioned collections -->
-      <!-- prettier-ignore -->
-      
-      
-      <li>
-        <!-- Only create links to collections which aren't our own  -->
-          
-      <!-- Ignore "posts" and "docs", we only want versioned collections -->
-      <!-- prettier-ignore -->
-       
-      </li>
-    </ul>
-
-    <!-- prettier-ignore -->
-    
-    
-    
-    <h4>Getting Started</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/tools">Tools</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/installation">Installation</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/upgrading">Upgrading</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/gettingstarted">Getting Started</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-    <h4>Configuration</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/target">Target Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/command">Command Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/telemetry">Telemetry Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/interfaces">Interface Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/protocols">Protocol Configuration</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-    <h4>Tool User Manuals</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-  <li class="">
-    <a href="/docs/v5/cmd-sender">Command Sender</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/cmd-tlm-server">Command and Telemetry Server</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/data-extractor">Data Extractor</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/limits-monitor">Limits Monitor</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/packet-viewer">Packet Viewer</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/script-runner">Script Runner</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/tlm-grapher">Telemetry Grapher</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/tlm-viewer">Telemetry Viewer</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="current">
-    <a href="/docs/v5/screens">Telemetry Screens</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-    <h4>Usage Guides</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/scripting">Scripting Guide</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/scripting-best-practices">Scripting Best Practices</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-    <h4>Development</h4>
-    <!-- prettier-ignore -->
-    <!-- prettier-ignore -->
-
-
-
-<ul>
-  <!-- prettier-ignore -->
-  
-  
-
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/json-api">JSON API</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-  <li class="">
-    <a href="/docs/v5/logging">Logging</a>
-  </li>
-  <!-- prettier-ignore -->
-  
-  
-</ul>
-
-    
-
-    <!-- Every versioned site gets the unversioned Meta section -->
-    <h4>Meta</h4>
-    <ul>
-      
-      <li>
-        <a href="/docs/contributing">Contributing</a>
-      </li>
-      
-      <li>
-        <a href="/docs/papers">Papers</a>
-      </li>
-      
-      <li>
-        <a href="/docs/requirements">Requirements and Design</a>
-      </li>
-      
-      <li>
-        <a href="/docs/xtce">XTCE Support</a>
-      </li>
-      
-    </ul>
-  </aside>
-</div>
-
-
-    <div class="clear"></div>
-  </div>
-</section>
-
-
-  <script>
-  (function() {
-    var cx = '001663949569052626382:-enhin1layy';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<footer role="contentinfo">
-  <div class="grid wider">
-    <div class="unit one-third center-on-mobiles">
-      <p>The contents of this website are &copy;&nbsp;2020 <a href="http://www.ballaerospace.com/" target="_blank">Ball Aerospace</a> under the terms of the <a href="https://github.com/BallAerospace/COSMOS/blob/master/LICENSE.txt" target="_blank">GPLv3&nbsp;License</a>.</p>
-      <p>Site design derived from the <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> project documentation which is licensed under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE" target="_blank">MIT License</a>.</p>
-    </div>
-    <div class="unit two-thirds align-right center-on-mobiles">
-      <p>
-        <gcse:search></gcse:search>
-        Proudly hosted by
-        <a href="https://github.com" target="_blank">
-          <img src="/img/footer-logo.png" width="100" height="30" alt="GitHub Social coding">
-        </a>
-      </p>
-    </div>
-  </div>
-</footer>
-
-  <script>
-  var anchorForId = function (id) {
-    var anchor = document.createElement("a");
-    anchor.className = "header-link";
-    anchor.href      = "#" + id;
-    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
-    anchor.title = "Permalink";
-    return anchor;
-  };
-
-  var linkifyAnchors = function (level, containingElement) {
-    var headers = containingElement.getElementsByTagName("h" + level);
-    for (var h = 0; h < headers.length; h++) {
-      var header = headers[h];
-
-      if (typeof header.id !== "undefined" && header.id !== "") {
-        header.appendChild(anchorForId(header.id));
-      }
-    }
-  };
-
-  document.onreadystatechange = function () {
-    if (this.readyState === "complete") {
-      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
-      if (!contentBlock) {
-        return;
-      }
-      for (var level = 1; level <= 6; level++) {
-        linkifyAnchors(level, contentBlock);
-      }
-    }
-  };
-</script>
-
-  
-  <!-- Google Analytics (http://google.com/analytics) -->
-  <script>
-    !function(j,e,k,y,l,L){j.GoogleAnalyticsObject=y,j[y]||(j[y]=function(){
-    (j[y].q=j[y].q||[]).push(arguments)}),j[y].l=+new Date,l=e.createElement(k),
-    L=e.getElementsByTagName(k)[0],l.src='//www.google-analytics.com/analytics.js',
-    L.parentNode.insertBefore(l,L)}(window,document,'script','ga');
-
-    ga('create', 'UA-60103689-1', 'cosmosrb.com');
-    ga('send', 'pageview');
-
-  </script>
-
-
-
-</body>
-</html>
+:ET
